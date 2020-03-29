@@ -28,7 +28,7 @@ var (
 )
 
 // ValidatorABI is the input ABI used to generate the binding from.
-const ValidatorABI = "[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"batchTransfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"systemRewardAddr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"crossTransferAddr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"lightClientAddr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"tokenContract\",\"type\":\"address\"}],\"name\":\"contractAddrUpdate\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"deprecatedDeposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"addresspayable\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"directTransfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"systemTransfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"validatorDeposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"validatorFelony\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"validatorMisdemeanor\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"validatorSetUpdated\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[],\"name\":\"CHANNEL_ID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"DUSTY_INCOMING\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"EXTRA_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"RELAYER_REWARD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"SYSTEM_ADDRESS\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"alreadyInit\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"currentValidatorSet\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"consensusAddress\",\"type\":\"address\"},{\"internalType\":\"addresspayable\",\"name\":\"feeAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"BBCFeeAddress\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"votingPower\",\"type\":\"uint64\"},{\"internalType\":\"uint256\",\"name\":\"incoming\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"fromChainId\",\"outputs\":[{\"internalType\":\"bytes2\",\"name\":\"\",\"type\":\"bytes2\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"initCrossTransferAddr\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"initLightClientAddr\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"initSlashContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"initSystemRewardAddr\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"initTokenContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"initValidatorSetBytes\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"keyPrefix\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"previousDepositHeight\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"sequence\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"toChainId\",\"outputs\":[{\"internalType\":\"bytes2\",\"name\":\"\",\"type\":\"bytes2\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"tokenContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"totalInComing\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"init\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_systemRewardAddr\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_crossTransferAddr\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_lightClientAddr\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_slashContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_tokenContract\",\"type\":\"address\"}],\"name\":\"updateContractAddr\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"valAddr\",\"type\":\"address\"}],\"name\":\"deposit\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"validatorSetBytes\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"proof\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"height\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"packageSequence\",\"type\":\"uint256\"}],\"name\":\"updateValidatorSet\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getValidators\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"getIncoming\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"misdemeanor\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"felony\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
+const ValidatorABI = "[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"batchTransfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"deprecatedDeposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"addresspayable\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"directTransfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"systemTransfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"validatorDeposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"validatorFelony\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"validatorJailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"validatorMisdemeanor\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"validatorSetUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"CHANNEL_ID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DUSTY_INCOMING\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"EXTRA_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"JAIL_MESSAGE_TYPE\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RELAYER_REWARD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"SYSTEM_ADDRESS\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VALIDATORS_UPDATE_MESSAGE_TYPE\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"alreadyInit\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"currentValidatorSet\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"consensusAddress\",\"type\":\"address\"},{\"internalType\":\"addresspayable\",\"name\":\"feeAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"BBCFeeAddress\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"votingPower\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"jailed\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"incoming\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"fromChainId\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initLightClientAddr\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initSlashContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initSystemRewardAddr\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initTokenHubAddr\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initValidatorSetBytes\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"keyPrefix\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"previousDepositHeight\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sequence\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"toChainId\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalInComing\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"init\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"valAddr\",\"type\":\"address\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"msgBytes\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"proof\",\"type\":\"bytes\"},{\"internalType\":\"uint64\",\"name\":\"height\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"packageSequence\",\"type\":\"uint64\"}],\"name\":\"update\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getValidators\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"getIncoming\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"misdemeanor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"felony\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
 
 // Validator is an auto generated Go binding around an Ethereum contract.
 type Validator struct {
@@ -250,6 +250,32 @@ func (_Validator *ValidatorCallerSession) EXTRAFEE() (*big.Int, error) {
 	return _Validator.Contract.EXTRAFEE(&_Validator.CallOpts)
 }
 
+// JAILMESSAGETYPE is a free data retrieval call binding the contract method 0xbf9f4995.
+//
+// Solidity: function JAIL_MESSAGE_TYPE() constant returns(uint8)
+func (_Validator *ValidatorCaller) JAILMESSAGETYPE(opts *bind.CallOpts) (uint8, error) {
+	var (
+		ret0 = new(uint8)
+	)
+	out := ret0
+	err := _Validator.contract.Call(opts, out, "JAIL_MESSAGE_TYPE")
+	return *ret0, err
+}
+
+// JAILMESSAGETYPE is a free data retrieval call binding the contract method 0xbf9f4995.
+//
+// Solidity: function JAIL_MESSAGE_TYPE() constant returns(uint8)
+func (_Validator *ValidatorSession) JAILMESSAGETYPE() (uint8, error) {
+	return _Validator.Contract.JAILMESSAGETYPE(&_Validator.CallOpts)
+}
+
+// JAILMESSAGETYPE is a free data retrieval call binding the contract method 0xbf9f4995.
+//
+// Solidity: function JAIL_MESSAGE_TYPE() constant returns(uint8)
+func (_Validator *ValidatorCallerSession) JAILMESSAGETYPE() (uint8, error) {
+	return _Validator.Contract.JAILMESSAGETYPE(&_Validator.CallOpts)
+}
+
 // RELAYERREWARD is a free data retrieval call binding the contract method 0x75405d0d.
 //
 // Solidity: function RELAYER_REWARD() constant returns(uint256)
@@ -302,6 +328,32 @@ func (_Validator *ValidatorCallerSession) SYSTEMADDRESS() (common.Address, error
 	return _Validator.Contract.SYSTEMADDRESS(&_Validator.CallOpts)
 }
 
+// VALIDATORSUPDATEMESSAGETYPE is a free data retrieval call binding the contract method 0x5667515a.
+//
+// Solidity: function VALIDATORS_UPDATE_MESSAGE_TYPE() constant returns(uint8)
+func (_Validator *ValidatorCaller) VALIDATORSUPDATEMESSAGETYPE(opts *bind.CallOpts) (uint8, error) {
+	var (
+		ret0 = new(uint8)
+	)
+	out := ret0
+	err := _Validator.contract.Call(opts, out, "VALIDATORS_UPDATE_MESSAGE_TYPE")
+	return *ret0, err
+}
+
+// VALIDATORSUPDATEMESSAGETYPE is a free data retrieval call binding the contract method 0x5667515a.
+//
+// Solidity: function VALIDATORS_UPDATE_MESSAGE_TYPE() constant returns(uint8)
+func (_Validator *ValidatorSession) VALIDATORSUPDATEMESSAGETYPE() (uint8, error) {
+	return _Validator.Contract.VALIDATORSUPDATEMESSAGETYPE(&_Validator.CallOpts)
+}
+
+// VALIDATORSUPDATEMESSAGETYPE is a free data retrieval call binding the contract method 0x5667515a.
+//
+// Solidity: function VALIDATORS_UPDATE_MESSAGE_TYPE() constant returns(uint8)
+func (_Validator *ValidatorCallerSession) VALIDATORSUPDATEMESSAGETYPE() (uint8, error) {
+	return _Validator.Contract.VALIDATORSUPDATEMESSAGETYPE(&_Validator.CallOpts)
+}
+
 // AlreadyInit is a free data retrieval call binding the contract method 0xa78abc16.
 //
 // Solidity: function alreadyInit() constant returns(bool)
@@ -330,12 +382,13 @@ func (_Validator *ValidatorCallerSession) AlreadyInit() (bool, error) {
 
 // CurrentValidatorSet is a free data retrieval call binding the contract method 0x6969a25c.
 //
-// Solidity: function currentValidatorSet(uint256 ) constant returns(address consensusAddress, address feeAddress, address BBCFeeAddress, uint64 votingPower, uint256 incoming)
+// Solidity: function currentValidatorSet(uint256 ) constant returns(address consensusAddress, address feeAddress, address BBCFeeAddress, uint64 votingPower, bool jailed, uint256 incoming)
 func (_Validator *ValidatorCaller) CurrentValidatorSet(opts *bind.CallOpts, arg0 *big.Int) (struct {
 	ConsensusAddress common.Address
 	FeeAddress       common.Address
 	BBCFeeAddress    common.Address
 	VotingPower      uint64
+	Jailed           bool
 	Incoming         *big.Int
 }, error) {
 	ret := new(struct {
@@ -343,6 +396,7 @@ func (_Validator *ValidatorCaller) CurrentValidatorSet(opts *bind.CallOpts, arg0
 		FeeAddress       common.Address
 		BBCFeeAddress    common.Address
 		VotingPower      uint64
+		Jailed           bool
 		Incoming         *big.Int
 	})
 	out := ret
@@ -352,12 +406,13 @@ func (_Validator *ValidatorCaller) CurrentValidatorSet(opts *bind.CallOpts, arg0
 
 // CurrentValidatorSet is a free data retrieval call binding the contract method 0x6969a25c.
 //
-// Solidity: function currentValidatorSet(uint256 ) constant returns(address consensusAddress, address feeAddress, address BBCFeeAddress, uint64 votingPower, uint256 incoming)
+// Solidity: function currentValidatorSet(uint256 ) constant returns(address consensusAddress, address feeAddress, address BBCFeeAddress, uint64 votingPower, bool jailed, uint256 incoming)
 func (_Validator *ValidatorSession) CurrentValidatorSet(arg0 *big.Int) (struct {
 	ConsensusAddress common.Address
 	FeeAddress       common.Address
 	BBCFeeAddress    common.Address
 	VotingPower      uint64
+	Jailed           bool
 	Incoming         *big.Int
 }, error) {
 	return _Validator.Contract.CurrentValidatorSet(&_Validator.CallOpts, arg0)
@@ -365,12 +420,13 @@ func (_Validator *ValidatorSession) CurrentValidatorSet(arg0 *big.Int) (struct {
 
 // CurrentValidatorSet is a free data retrieval call binding the contract method 0x6969a25c.
 //
-// Solidity: function currentValidatorSet(uint256 ) constant returns(address consensusAddress, address feeAddress, address BBCFeeAddress, uint64 votingPower, uint256 incoming)
+// Solidity: function currentValidatorSet(uint256 ) constant returns(address consensusAddress, address feeAddress, address BBCFeeAddress, uint64 votingPower, bool jailed, uint256 incoming)
 func (_Validator *ValidatorCallerSession) CurrentValidatorSet(arg0 *big.Int) (struct {
 	ConsensusAddress common.Address
 	FeeAddress       common.Address
 	BBCFeeAddress    common.Address
 	VotingPower      uint64
+	Jailed           bool
 	Incoming         *big.Int
 }, error) {
 	return _Validator.Contract.CurrentValidatorSet(&_Validator.CallOpts, arg0)
@@ -378,10 +434,10 @@ func (_Validator *ValidatorCallerSession) CurrentValidatorSet(arg0 *big.Int) (st
 
 // FromChainId is a free data retrieval call binding the contract method 0x3e2ae2f8.
 //
-// Solidity: function fromChainId() constant returns(bytes2)
-func (_Validator *ValidatorCaller) FromChainId(opts *bind.CallOpts) ([2]byte, error) {
+// Solidity: function fromChainId() constant returns(uint16)
+func (_Validator *ValidatorCaller) FromChainId(opts *bind.CallOpts) (uint16, error) {
 	var (
-		ret0 = new([2]byte)
+		ret0 = new(uint16)
 	)
 	out := ret0
 	err := _Validator.contract.Call(opts, out, "fromChainId")
@@ -390,15 +446,15 @@ func (_Validator *ValidatorCaller) FromChainId(opts *bind.CallOpts) ([2]byte, er
 
 // FromChainId is a free data retrieval call binding the contract method 0x3e2ae2f8.
 //
-// Solidity: function fromChainId() constant returns(bytes2)
-func (_Validator *ValidatorSession) FromChainId() ([2]byte, error) {
+// Solidity: function fromChainId() constant returns(uint16)
+func (_Validator *ValidatorSession) FromChainId() (uint16, error) {
 	return _Validator.Contract.FromChainId(&_Validator.CallOpts)
 }
 
 // FromChainId is a free data retrieval call binding the contract method 0x3e2ae2f8.
 //
-// Solidity: function fromChainId() constant returns(bytes2)
-func (_Validator *ValidatorCallerSession) FromChainId() ([2]byte, error) {
+// Solidity: function fromChainId() constant returns(uint16)
+func (_Validator *ValidatorCallerSession) FromChainId() (uint16, error) {
 	return _Validator.Contract.FromChainId(&_Validator.CallOpts)
 }
 
@@ -452,32 +508,6 @@ func (_Validator *ValidatorSession) GetValidators() ([]common.Address, error) {
 // Solidity: function getValidators() constant returns(address[])
 func (_Validator *ValidatorCallerSession) GetValidators() ([]common.Address, error) {
 	return _Validator.Contract.GetValidators(&_Validator.CallOpts)
-}
-
-// InitCrossTransferAddr is a free data retrieval call binding the contract method 0xe3514446.
-//
-// Solidity: function initCrossTransferAddr() constant returns(address)
-func (_Validator *ValidatorCaller) InitCrossTransferAddr(opts *bind.CallOpts) (common.Address, error) {
-	var (
-		ret0 = new(common.Address)
-	)
-	out := ret0
-	err := _Validator.contract.Call(opts, out, "initCrossTransferAddr")
-	return *ret0, err
-}
-
-// InitCrossTransferAddr is a free data retrieval call binding the contract method 0xe3514446.
-//
-// Solidity: function initCrossTransferAddr() constant returns(address)
-func (_Validator *ValidatorSession) InitCrossTransferAddr() (common.Address, error) {
-	return _Validator.Contract.InitCrossTransferAddr(&_Validator.CallOpts)
-}
-
-// InitCrossTransferAddr is a free data retrieval call binding the contract method 0xe3514446.
-//
-// Solidity: function initCrossTransferAddr() constant returns(address)
-func (_Validator *ValidatorCallerSession) InitCrossTransferAddr() (common.Address, error) {
-	return _Validator.Contract.InitCrossTransferAddr(&_Validator.CallOpts)
 }
 
 // InitLightClientAddr is a free data retrieval call binding the contract method 0x355fd362.
@@ -558,30 +588,30 @@ func (_Validator *ValidatorCallerSession) InitSystemRewardAddr() (common.Address
 	return _Validator.Contract.InitSystemRewardAddr(&_Validator.CallOpts)
 }
 
-// InitTokenContract is a free data retrieval call binding the contract method 0x2fff7d55.
+// InitTokenHubAddr is a free data retrieval call binding the contract method 0x83b27d06.
 //
-// Solidity: function initTokenContract() constant returns(address)
-func (_Validator *ValidatorCaller) InitTokenContract(opts *bind.CallOpts) (common.Address, error) {
+// Solidity: function initTokenHubAddr() constant returns(address)
+func (_Validator *ValidatorCaller) InitTokenHubAddr(opts *bind.CallOpts) (common.Address, error) {
 	var (
 		ret0 = new(common.Address)
 	)
 	out := ret0
-	err := _Validator.contract.Call(opts, out, "initTokenContract")
+	err := _Validator.contract.Call(opts, out, "initTokenHubAddr")
 	return *ret0, err
 }
 
-// InitTokenContract is a free data retrieval call binding the contract method 0x2fff7d55.
+// InitTokenHubAddr is a free data retrieval call binding the contract method 0x83b27d06.
 //
-// Solidity: function initTokenContract() constant returns(address)
-func (_Validator *ValidatorSession) InitTokenContract() (common.Address, error) {
-	return _Validator.Contract.InitTokenContract(&_Validator.CallOpts)
+// Solidity: function initTokenHubAddr() constant returns(address)
+func (_Validator *ValidatorSession) InitTokenHubAddr() (common.Address, error) {
+	return _Validator.Contract.InitTokenHubAddr(&_Validator.CallOpts)
 }
 
-// InitTokenContract is a free data retrieval call binding the contract method 0x2fff7d55.
+// InitTokenHubAddr is a free data retrieval call binding the contract method 0x83b27d06.
 //
-// Solidity: function initTokenContract() constant returns(address)
-func (_Validator *ValidatorCallerSession) InitTokenContract() (common.Address, error) {
-	return _Validator.Contract.InitTokenContract(&_Validator.CallOpts)
+// Solidity: function initTokenHubAddr() constant returns(address)
+func (_Validator *ValidatorCallerSession) InitTokenHubAddr() (common.Address, error) {
+	return _Validator.Contract.InitTokenHubAddr(&_Validator.CallOpts)
 }
 
 // InitValidatorSetBytes is a free data retrieval call binding the contract method 0x32c55e89.
@@ -638,10 +668,10 @@ func (_Validator *ValidatorCallerSession) KeyPrefix() ([]byte, error) {
 
 // PreviousDepositHeight is a free data retrieval call binding the contract method 0x4e3e3ca9.
 //
-// Solidity: function previousDepositHeight() constant returns(uint256)
-func (_Validator *ValidatorCaller) PreviousDepositHeight(opts *bind.CallOpts) (*big.Int, error) {
+// Solidity: function previousDepositHeight() constant returns(uint64)
+func (_Validator *ValidatorCaller) PreviousDepositHeight(opts *bind.CallOpts) (uint64, error) {
 	var (
-		ret0 = new(*big.Int)
+		ret0 = new(uint64)
 	)
 	out := ret0
 	err := _Validator.contract.Call(opts, out, "previousDepositHeight")
@@ -650,24 +680,24 @@ func (_Validator *ValidatorCaller) PreviousDepositHeight(opts *bind.CallOpts) (*
 
 // PreviousDepositHeight is a free data retrieval call binding the contract method 0x4e3e3ca9.
 //
-// Solidity: function previousDepositHeight() constant returns(uint256)
-func (_Validator *ValidatorSession) PreviousDepositHeight() (*big.Int, error) {
+// Solidity: function previousDepositHeight() constant returns(uint64)
+func (_Validator *ValidatorSession) PreviousDepositHeight() (uint64, error) {
 	return _Validator.Contract.PreviousDepositHeight(&_Validator.CallOpts)
 }
 
 // PreviousDepositHeight is a free data retrieval call binding the contract method 0x4e3e3ca9.
 //
-// Solidity: function previousDepositHeight() constant returns(uint256)
-func (_Validator *ValidatorCallerSession) PreviousDepositHeight() (*big.Int, error) {
+// Solidity: function previousDepositHeight() constant returns(uint64)
+func (_Validator *ValidatorCallerSession) PreviousDepositHeight() (uint64, error) {
 	return _Validator.Contract.PreviousDepositHeight(&_Validator.CallOpts)
 }
 
 // Sequence is a free data retrieval call binding the contract method 0x529d15cc.
 //
-// Solidity: function sequence() constant returns(uint256)
-func (_Validator *ValidatorCaller) Sequence(opts *bind.CallOpts) (*big.Int, error) {
+// Solidity: function sequence() constant returns(uint64)
+func (_Validator *ValidatorCaller) Sequence(opts *bind.CallOpts) (uint64, error) {
 	var (
-		ret0 = new(*big.Int)
+		ret0 = new(uint64)
 	)
 	out := ret0
 	err := _Validator.contract.Call(opts, out, "sequence")
@@ -676,24 +706,24 @@ func (_Validator *ValidatorCaller) Sequence(opts *bind.CallOpts) (*big.Int, erro
 
 // Sequence is a free data retrieval call binding the contract method 0x529d15cc.
 //
-// Solidity: function sequence() constant returns(uint256)
-func (_Validator *ValidatorSession) Sequence() (*big.Int, error) {
+// Solidity: function sequence() constant returns(uint64)
+func (_Validator *ValidatorSession) Sequence() (uint64, error) {
 	return _Validator.Contract.Sequence(&_Validator.CallOpts)
 }
 
 // Sequence is a free data retrieval call binding the contract method 0x529d15cc.
 //
-// Solidity: function sequence() constant returns(uint256)
-func (_Validator *ValidatorCallerSession) Sequence() (*big.Int, error) {
+// Solidity: function sequence() constant returns(uint64)
+func (_Validator *ValidatorCallerSession) Sequence() (uint64, error) {
 	return _Validator.Contract.Sequence(&_Validator.CallOpts)
 }
 
 // ToChainId is a free data retrieval call binding the contract method 0x07bb7655.
 //
-// Solidity: function toChainId() constant returns(bytes2)
-func (_Validator *ValidatorCaller) ToChainId(opts *bind.CallOpts) ([2]byte, error) {
+// Solidity: function toChainId() constant returns(uint16)
+func (_Validator *ValidatorCaller) ToChainId(opts *bind.CallOpts) (uint16, error) {
 	var (
-		ret0 = new([2]byte)
+		ret0 = new(uint16)
 	)
 	out := ret0
 	err := _Validator.contract.Call(opts, out, "toChainId")
@@ -702,42 +732,16 @@ func (_Validator *ValidatorCaller) ToChainId(opts *bind.CallOpts) ([2]byte, erro
 
 // ToChainId is a free data retrieval call binding the contract method 0x07bb7655.
 //
-// Solidity: function toChainId() constant returns(bytes2)
-func (_Validator *ValidatorSession) ToChainId() ([2]byte, error) {
+// Solidity: function toChainId() constant returns(uint16)
+func (_Validator *ValidatorSession) ToChainId() (uint16, error) {
 	return _Validator.Contract.ToChainId(&_Validator.CallOpts)
 }
 
 // ToChainId is a free data retrieval call binding the contract method 0x07bb7655.
 //
-// Solidity: function toChainId() constant returns(bytes2)
-func (_Validator *ValidatorCallerSession) ToChainId() ([2]byte, error) {
+// Solidity: function toChainId() constant returns(uint16)
+func (_Validator *ValidatorCallerSession) ToChainId() (uint16, error) {
 	return _Validator.Contract.ToChainId(&_Validator.CallOpts)
-}
-
-// TokenContract is a free data retrieval call binding the contract method 0x55a373d6.
-//
-// Solidity: function tokenContract() constant returns(address)
-func (_Validator *ValidatorCaller) TokenContract(opts *bind.CallOpts) (common.Address, error) {
-	var (
-		ret0 = new(common.Address)
-	)
-	out := ret0
-	err := _Validator.contract.Call(opts, out, "tokenContract")
-	return *ret0, err
-}
-
-// TokenContract is a free data retrieval call binding the contract method 0x55a373d6.
-//
-// Solidity: function tokenContract() constant returns(address)
-func (_Validator *ValidatorSession) TokenContract() (common.Address, error) {
-	return _Validator.Contract.TokenContract(&_Validator.CallOpts)
-}
-
-// TokenContract is a free data retrieval call binding the contract method 0x55a373d6.
-//
-// Solidity: function tokenContract() constant returns(address)
-func (_Validator *ValidatorCallerSession) TokenContract() (common.Address, error) {
-	return _Validator.Contract.TokenContract(&_Validator.CallOpts)
 }
 
 // TotalInComing is a free data retrieval call binding the contract method 0x1ff18069.
@@ -850,46 +854,25 @@ func (_Validator *ValidatorTransactorSession) Misdemeanor(validator common.Addre
 	return _Validator.Contract.Misdemeanor(&_Validator.TransactOpts, validator)
 }
 
-// UpdateContractAddr is a paid mutator transaction binding the contract method 0x6c827b67.
+// Update is a paid mutator transaction binding the contract method 0xe695c4ae.
 //
-// Solidity: function updateContractAddr(address _systemRewardAddr, address _crossTransferAddr, address _lightClientAddr, address _slashContract, address _tokenContract) returns()
-func (_Validator *ValidatorTransactor) UpdateContractAddr(opts *bind.TransactOpts, _systemRewardAddr common.Address, _crossTransferAddr common.Address, _lightClientAddr common.Address, _slashContract common.Address, _tokenContract common.Address) (*types.Transaction, error) {
-	return _Validator.contract.Transact(opts, "updateContractAddr", _systemRewardAddr, _crossTransferAddr, _lightClientAddr, _slashContract, _tokenContract)
+// Solidity: function update(bytes msgBytes, bytes proof, uint64 height, uint64 packageSequence) returns()
+func (_Validator *ValidatorTransactor) Update(opts *bind.TransactOpts, msgBytes []byte, proof []byte, height uint64, packageSequence uint64) (*types.Transaction, error) {
+	return _Validator.contract.Transact(opts, "update", msgBytes, proof, height, packageSequence)
 }
 
-// UpdateContractAddr is a paid mutator transaction binding the contract method 0x6c827b67.
+// Update is a paid mutator transaction binding the contract method 0xe695c4ae.
 //
-// Solidity: function updateContractAddr(address _systemRewardAddr, address _crossTransferAddr, address _lightClientAddr, address _slashContract, address _tokenContract) returns()
-func (_Validator *ValidatorSession) UpdateContractAddr(_systemRewardAddr common.Address, _crossTransferAddr common.Address, _lightClientAddr common.Address, _slashContract common.Address, _tokenContract common.Address) (*types.Transaction, error) {
-	return _Validator.Contract.UpdateContractAddr(&_Validator.TransactOpts, _systemRewardAddr, _crossTransferAddr, _lightClientAddr, _slashContract, _tokenContract)
+// Solidity: function update(bytes msgBytes, bytes proof, uint64 height, uint64 packageSequence) returns()
+func (_Validator *ValidatorSession) Update(msgBytes []byte, proof []byte, height uint64, packageSequence uint64) (*types.Transaction, error) {
+	return _Validator.Contract.Update(&_Validator.TransactOpts, msgBytes, proof, height, packageSequence)
 }
 
-// UpdateContractAddr is a paid mutator transaction binding the contract method 0x6c827b67.
+// Update is a paid mutator transaction binding the contract method 0xe695c4ae.
 //
-// Solidity: function updateContractAddr(address _systemRewardAddr, address _crossTransferAddr, address _lightClientAddr, address _slashContract, address _tokenContract) returns()
-func (_Validator *ValidatorTransactorSession) UpdateContractAddr(_systemRewardAddr common.Address, _crossTransferAddr common.Address, _lightClientAddr common.Address, _slashContract common.Address, _tokenContract common.Address) (*types.Transaction, error) {
-	return _Validator.Contract.UpdateContractAddr(&_Validator.TransactOpts, _systemRewardAddr, _crossTransferAddr, _lightClientAddr, _slashContract, _tokenContract)
-}
-
-// UpdateValidatorSet is a paid mutator transaction binding the contract method 0x883435a5.
-//
-// Solidity: function updateValidatorSet(bytes validatorSetBytes, bytes proof, uint256 height, uint256 packageSequence) returns()
-func (_Validator *ValidatorTransactor) UpdateValidatorSet(opts *bind.TransactOpts, validatorSetBytes []byte, proof []byte, height *big.Int, packageSequence *big.Int) (*types.Transaction, error) {
-	return _Validator.contract.Transact(opts, "updateValidatorSet", validatorSetBytes, proof, height, packageSequence)
-}
-
-// UpdateValidatorSet is a paid mutator transaction binding the contract method 0x883435a5.
-//
-// Solidity: function updateValidatorSet(bytes validatorSetBytes, bytes proof, uint256 height, uint256 packageSequence) returns()
-func (_Validator *ValidatorSession) UpdateValidatorSet(validatorSetBytes []byte, proof []byte, height *big.Int, packageSequence *big.Int) (*types.Transaction, error) {
-	return _Validator.Contract.UpdateValidatorSet(&_Validator.TransactOpts, validatorSetBytes, proof, height, packageSequence)
-}
-
-// UpdateValidatorSet is a paid mutator transaction binding the contract method 0x883435a5.
-//
-// Solidity: function updateValidatorSet(bytes validatorSetBytes, bytes proof, uint256 height, uint256 packageSequence) returns()
-func (_Validator *ValidatorTransactorSession) UpdateValidatorSet(validatorSetBytes []byte, proof []byte, height *big.Int, packageSequence *big.Int) (*types.Transaction, error) {
-	return _Validator.Contract.UpdateValidatorSet(&_Validator.TransactOpts, validatorSetBytes, proof, height, packageSequence)
+// Solidity: function update(bytes msgBytes, bytes proof, uint64 height, uint64 packageSequence) returns()
+func (_Validator *ValidatorTransactorSession) Update(msgBytes []byte, proof []byte, height uint64, packageSequence uint64) (*types.Transaction, error) {
+	return _Validator.Contract.Update(&_Validator.TransactOpts, msgBytes, proof, height, packageSequence)
 }
 
 // ValidatorBatchTransferIterator is returned from FilterBatchTransfer and is used to iterate over the raw logs and unpacked data for BatchTransfer events raised by the Validator contract.
@@ -1030,142 +1013,6 @@ func (_Validator *ValidatorFilterer) WatchBatchTransfer(opts *bind.WatchOpts, si
 func (_Validator *ValidatorFilterer) ParseBatchTransfer(log types.Log) (*ValidatorBatchTransfer, error) {
 	event := new(ValidatorBatchTransfer)
 	if err := _Validator.contract.UnpackLog(event, "batchTransfer", log); err != nil {
-		return nil, err
-	}
-	return event, nil
-}
-
-// ValidatorContractAddrUpdateIterator is returned from FilterContractAddrUpdate and is used to iterate over the raw logs and unpacked data for ContractAddrUpdate events raised by the Validator contract.
-type ValidatorContractAddrUpdateIterator struct {
-	Event *ValidatorContractAddrUpdate // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *ValidatorContractAddrUpdateIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(ValidatorContractAddrUpdate)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(ValidatorContractAddrUpdate)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *ValidatorContractAddrUpdateIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *ValidatorContractAddrUpdateIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// ValidatorContractAddrUpdate represents a ContractAddrUpdate event raised by the Validator contract.
-type ValidatorContractAddrUpdate struct {
-	SystemRewardAddr  common.Address
-	CrossTransferAddr common.Address
-	LightClientAddr   common.Address
-	TokenContract     common.Address
-	Raw               types.Log // Blockchain specific contextual infos
-}
-
-// FilterContractAddrUpdate is a free log retrieval operation binding the contract event 0x31adeba29f830090d60e69bddcbbed4b0084a35f14162cc823580d66ae529e36.
-//
-// Solidity: event contractAddrUpdate(address systemRewardAddr, address crossTransferAddr, address lightClientAddr, address tokenContract)
-func (_Validator *ValidatorFilterer) FilterContractAddrUpdate(opts *bind.FilterOpts) (*ValidatorContractAddrUpdateIterator, error) {
-
-	logs, sub, err := _Validator.contract.FilterLogs(opts, "contractAddrUpdate")
-	if err != nil {
-		return nil, err
-	}
-	return &ValidatorContractAddrUpdateIterator{contract: _Validator.contract, event: "contractAddrUpdate", logs: logs, sub: sub}, nil
-}
-
-// WatchContractAddrUpdate is a free log subscription operation binding the contract event 0x31adeba29f830090d60e69bddcbbed4b0084a35f14162cc823580d66ae529e36.
-//
-// Solidity: event contractAddrUpdate(address systemRewardAddr, address crossTransferAddr, address lightClientAddr, address tokenContract)
-func (_Validator *ValidatorFilterer) WatchContractAddrUpdate(opts *bind.WatchOpts, sink chan<- *ValidatorContractAddrUpdate) (event.Subscription, error) {
-
-	logs, sub, err := _Validator.contract.WatchLogs(opts, "contractAddrUpdate")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(ValidatorContractAddrUpdate)
-				if err := _Validator.contract.UnpackLog(event, "contractAddrUpdate", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseContractAddrUpdate is a log parse operation binding the contract event 0x31adeba29f830090d60e69bddcbbed4b0084a35f14162cc823580d66ae529e36.
-//
-// Solidity: event contractAddrUpdate(address systemRewardAddr, address crossTransferAddr, address lightClientAddr, address tokenContract)
-func (_Validator *ValidatorFilterer) ParseContractAddrUpdate(log types.Log) (*ValidatorContractAddrUpdate, error) {
-	event := new(ValidatorContractAddrUpdate)
-	if err := _Validator.contract.UnpackLog(event, "contractAddrUpdate", log); err != nil {
 		return nil, err
 	}
 	return event, nil
@@ -1917,6 +1764,149 @@ func (_Validator *ValidatorFilterer) WatchValidatorFelony(opts *bind.WatchOpts, 
 func (_Validator *ValidatorFilterer) ParseValidatorFelony(log types.Log) (*ValidatorValidatorFelony, error) {
 	event := new(ValidatorValidatorFelony)
 	if err := _Validator.contract.UnpackLog(event, "validatorFelony", log); err != nil {
+		return nil, err
+	}
+	return event, nil
+}
+
+// ValidatorValidatorJailedIterator is returned from FilterValidatorJailed and is used to iterate over the raw logs and unpacked data for ValidatorJailed events raised by the Validator contract.
+type ValidatorValidatorJailedIterator struct {
+	Event *ValidatorValidatorJailed // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *ValidatorValidatorJailedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(ValidatorValidatorJailed)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(ValidatorValidatorJailed)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *ValidatorValidatorJailedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *ValidatorValidatorJailedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// ValidatorValidatorJailed represents a ValidatorJailed event raised by the Validator contract.
+type ValidatorValidatorJailed struct {
+	Validator common.Address
+	Raw       types.Log // Blockchain specific contextual infos
+}
+
+// FilterValidatorJailed is a free log retrieval operation binding the contract event 0xf226e7d8f547ff903d9d419cf5f54e0d7d07efa9584135a53a057c5f1f27f49a.
+//
+// Solidity: event validatorJailed(address indexed validator)
+func (_Validator *ValidatorFilterer) FilterValidatorJailed(opts *bind.FilterOpts, validator []common.Address) (*ValidatorValidatorJailedIterator, error) {
+
+	var validatorRule []interface{}
+	for _, validatorItem := range validator {
+		validatorRule = append(validatorRule, validatorItem)
+	}
+
+	logs, sub, err := _Validator.contract.FilterLogs(opts, "validatorJailed", validatorRule)
+	if err != nil {
+		return nil, err
+	}
+	return &ValidatorValidatorJailedIterator{contract: _Validator.contract, event: "validatorJailed", logs: logs, sub: sub}, nil
+}
+
+// WatchValidatorJailed is a free log subscription operation binding the contract event 0xf226e7d8f547ff903d9d419cf5f54e0d7d07efa9584135a53a057c5f1f27f49a.
+//
+// Solidity: event validatorJailed(address indexed validator)
+func (_Validator *ValidatorFilterer) WatchValidatorJailed(opts *bind.WatchOpts, sink chan<- *ValidatorValidatorJailed, validator []common.Address) (event.Subscription, error) {
+
+	var validatorRule []interface{}
+	for _, validatorItem := range validator {
+		validatorRule = append(validatorRule, validatorItem)
+	}
+
+	logs, sub, err := _Validator.contract.WatchLogs(opts, "validatorJailed", validatorRule)
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(ValidatorValidatorJailed)
+				if err := _Validator.contract.UnpackLog(event, "validatorJailed", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseValidatorJailed is a log parse operation binding the contract event 0xf226e7d8f547ff903d9d419cf5f54e0d7d07efa9584135a53a057c5f1f27f49a.
+//
+// Solidity: event validatorJailed(address indexed validator)
+func (_Validator *ValidatorFilterer) ParseValidatorJailed(log types.Log) (*ValidatorValidatorJailed, error) {
+	event := new(ValidatorValidatorJailed)
+	if err := _Validator.contract.UnpackLog(event, "validatorJailed", log); err != nil {
 		return nil, err
 	}
 	return event, nil

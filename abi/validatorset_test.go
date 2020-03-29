@@ -22,30 +22,47 @@ import (
 	"time"
 )
 
-var endpoint = "http://127.0.0.1:8545"
+var endpoint = "http://127.0.0.1:8502"
 var wsEndpoint = "ws://127.0.0.1:8547"
 var validatorSetAddr = common.HexToAddress("0x0000000000000000000000000000000000001000")
 var crosschainAddr = common.HexToAddress("0x0000000000000000000000000000000000001004")
-var systemRewardAddr= common.HexToAddress("0x0000000000000000000000000000000000001002")
+var systemRewardAddr = common.HexToAddress("0x0000000000000000000000000000000000001002")
 var account, _ = fromHexKey("9b28f36fbd67381120752d6172ecdcf10e06ab2d9a1367aac00cdcd6ac7855d3")
 var receiveAccount = common.HexToAddress("0x27d92f736324e6d9f85d37a27a23aaabe7162168")
 var validatorSetABI, _ = abi.JSON(strings.NewReader(ValidatorABI))
 
-// simulate
-func TestSimulateValidatorContract(t *testing.T) {
+func TestSimulateUpdateValidatorContract(t *testing.T) {
 	client, err := ethclient.Dial(endpoint)
 	assert.NoError(t, err)
 
-	gasLimit := uint64(3e5)
+	instance, err := NewValidator(validatorSetAddr, client)
+	assert.NoError(t, err)
+	nonce, err := client.PendingNonceAt(context.Background(), account.addr)
+
 	gasPrice, err := client.SuggestGasPrice(context.Background())
 	assert.NoError(t, err)
 	auth := bind.NewKeyedTransactor(account.key)
+	auth.Nonce = big.NewInt(int64(nonce))
 	auth.Value = big.NewInt(0)
-	auth.GasLimit = gasLimit
 	auth.GasPrice = gasPrice
 
-	data, err := validatorSetABI.Pack("updateValidatorSet", common.Hex2Bytes("57d95bf4705b8636eef5060bbb51c470c6ad967557d95bf4705b8636eef5060bbb51c470c6ad967557d95bf4705b8636eef5060bbb51c470c6ad9675000000001000000069df37f10ecaf3c55c44bc2f2ca73610bb676d9469df37f10ecaf3c55c44bc2f2ca73610bb676d9469df37f10ecaf3c55c44bc2f2ca73610bb676d9400000000100000008ffd9b5276e4e9d18cb35e41b41fed69ed14fbcb8ffd9b5276e4e9d18cb35e41b41fed69ed14fbcb8ffd9b5276e4e9d18cb35e41b41fed69ed14fbcb0000000010000000"),
-		common.Hex2Bytes("12"), big.NewInt(1), big.NewInt(3))
+	sequence, err := instance.Sequence(nil)
+	assert.NoError(t, err)
+
+	wsclient, err := ethclient.Dial(wsEndpoint)
+	assert.NoError(t, err)
+	wsInstance, err := NewValidator(validatorSetAddr, wsclient)
+	assert.NoError(t, err)
+	sink := make(chan *ValidatorValidatorSetUpdated)
+	subs, err := wsInstance.WatchValidatorSetUpdated(nil, sink)
+	assert.NoError(t, err)
+	defer subs.Unsubscribe()
+
+	bz, err := instance.InitValidatorSetBytes(nil)
+	assert.NoError(t, err)
+
+	data, err := validatorSetABI.Pack("update", bz[1+68:],
+		common.Hex2Bytes("12"), uint64(1), sequence+1)
 	assert.NoError(t, err)
 
 	msg := ethereum.CallMsg{
@@ -89,21 +106,25 @@ func TestUpdateValidatorContract(t *testing.T) {
 	subs, err := wsInstance.WatchValidatorSetUpdated(nil, sink)
 	assert.NoError(t, err)
 	defer subs.Unsubscribe()
+	time.Sleep(1 * time.Second)
 
 	bz, err := instance.InitValidatorSetBytes(nil)
 	assert.NoError(t, err)
-	tx, e := instance.UpdateValidatorSet(auth, append(bz),
-		nil, big.NewInt(1), big.NewInt(0).Add(sequence, big.NewInt(1)))
+	tx, e := instance.Update(auth, append([]byte{0x00},bz[1:]...), common.Hex2Bytes("12"), 0, sequence+1)
 
 	assert.NoError(t, e)
-	time.Sleep(2 * time.Second)
+	time.Sleep(4 * time.Second)
 	fmt.Println("wait event")
-	<-sink
+	//<-sink
 	r, err := client.TransactionReceipt(context.Background(), tx.Hash())
 	assert.NoError(t, err)
+	fmt.Printf("status %d\n",r.Status)
 	fmt.Printf("gas used %d\n", r.GasUsed)
 	fmt.Printf("gas price %v\n", tx.GasPrice().String())
-	fmt.Printf("success: %v", r.Status == 1)
+	fmt.Printf("success: %v\n", r.Status == 1)
+
+	vs,_:=instance.GetValidators(nil);
+	fmt.Println(len(vs))
 }
 
 func TestGetBalanceOfValidators(t *testing.T) {
@@ -156,21 +177,22 @@ func TestGetBalanceOfValidators(t *testing.T) {
 	//myaccount have 906493862499999647830   diff 46037500000000000  used 53962500000000000  46037500000000000
 }
 
-func TestTmp(t *testing.T){
+func TestTmp(t *testing.T) {
 
-	fmt.Println(time.Unix(567818489952,0))
+	fmt.Println(time.Unix(567818489952, 0))
 }
 
 func TestTransfer(t *testing.T) {
-	for i := 0; i < 6; i++ {
+	for i := 0; i < 20; i++ {
 		client, err := ethclient.Dial(endpoint)
 		assert.NoError(t, err)
 		balanceBefore, err := client.BalanceAt(context.Background(), receiveAccount, nil)
 		assert.NoError(t, err)
 		tx, err := sendEther(client, account, receiveAccount, big.NewInt(params.Ether), false)
 		assert.NoError(t, err)
-		time.Sleep(2 * time.Second)
+		time.Sleep(3 * time.Second)
 		r, err := client.TransactionReceipt(context.Background(), tx)
+		fmt.Println(err)
 		assert.NoError(t, err)
 		assert.Equal(t, r.Status, uint64(1))
 		balanceAfter, err := client.BalanceAt(context.Background(), receiveAccount, nil)
@@ -211,8 +233,54 @@ func TestBlockNum(t *testing.T) {
 	}
 }
 
+func TestBlocRecepient(t *testing.T) {
+	client, err := ethclient.Dial(endpoint)
+	if err != nil {
+		panic(err)
+	}
+
+	b, err := client.BlockByNumber(context.Background(), big.NewInt(193))
+
+	accounts := make(map[common.Address]bool, 0)
+	assert.NoError(t, err)
+	for i := 0; i < b.Transactions().Len(); i++ {
+		r, err := client.TransactionReceipt(context.Background(), b.Transactions()[0].Hash())
+		assert.NoError(t, err)
+		fmt.Printf("status %d , gas used %d , gas price %d\n", r.Status, r.GasUsed, b.Transactions()[i].GasPrice())
+		accounts[*b.Transactions()[i].To()] = true
+		from, err := types.Sender(types.NewEIP155Signer(big.NewInt(714)), b.Transactions()[i])
+		assert.NoError(t, err)
+		accounts[from] = true
+	}
+
+	// get account
+	beofreTotal := big.NewInt(0)
+	for a := range accounts {
+		b, err := client.BalanceAt(context.Background(), a, big.NewInt(192))
+		beofreTotal = beofreTotal.Add(beofreTotal, b)
+		assert.NoError(t, err)
+	}
+
+	afterTotal := big.NewInt(0)
+	for a := range accounts {
+		b, err := client.BalanceAt(context.Background(), a, big.NewInt(193))
+		afterTotal = afterTotal.Add(afterTotal, b)
+		assert.NoError(t, err)
+	}
+
+	fmt.Printf("before %s\n", beofreTotal.String())
+	fmt.Printf("after %s\n", afterTotal.String())
+	fmt.Printf("sub: %s\n", big.NewInt(0).Sub(beofreTotal, afterTotal))
+
+}
+
 func TestGetETH(t *testing.T) {
 	fmt.Println(new(big.Float).Quo(new(big.Float).SetInt(math.MustParseBig256("99999999950000000")), new(big.Float).SetInt(big.NewInt(params.Ether))))
+}
+
+func TestTmp1(t *testing.T) {
+	_, ok := context.Background().Value("as").([]byte)
+	fmt.Println(ok)
 }
 
 func sendEther(client *ethclient.Client, fromEO ExtAcc, toAddr common.Address, value *big.Int, hugegasPrice bool) (common.Hash, error) {
