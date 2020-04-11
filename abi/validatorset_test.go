@@ -3,6 +3,7 @@ package abi
 import (
 	"context"
 	"crypto/ecdsa"
+	"encoding/hex"
 	"fmt"
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/accounts/abi"
@@ -13,22 +14,33 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
-	"log"
+	"golang.org/x/crypto/sha3"
+	"io"
 	"math/big"
 	"strings"
 	"testing"
 	"time"
 )
 
-var endpoint = "http://127.0.0.1:8502"
-var wsEndpoint = "ws://127.0.0.1:8547"
+//var endpoint = "http://127.0.0.1:8502"
+
+var endpoint ="http://dex-qa-s1-bsc-dev-validator-alb-501442930.ap-northeast-1.elb.amazonaws.com:8545"
+
+
+//var endpoint = "http://127.0.0.1:8545"
+
+//var wsEndpoint = "ws://127.0.0.1:8547"
+var wsEndpoint = "ws://dex-qa-s1-bsc-dev-validator-alb-501442930.ap-northeast-1.elb.amazonaws.com:8546"
+
 var validatorSetAddr = common.HexToAddress("0x0000000000000000000000000000000000001000")
 var crosschainAddr = common.HexToAddress("0x0000000000000000000000000000000000001004")
 var systemRewardAddr = common.HexToAddress("0x0000000000000000000000000000000000001002")
 var account, _ = fromHexKey("9b28f36fbd67381120752d6172ecdcf10e06ab2d9a1367aac00cdcd6ac7855d3")
-var receiveAccount = common.HexToAddress("0x27d92f736324e6d9f85d37a27a23aaabe7162168")
+var receiveAccount = common.HexToAddress("0xaa25Aa7a19f9c426E07dee59b12f944f4d9f1DD3")
+var SystemAddress = common.HexToAddress("0xffffFFFfFFffffffffffffffFfFFFfffFFFfFFfE")
 var validatorSetABI, _ = abi.JSON(strings.NewReader(ValidatorABI))
 
 func TestSimulateUpdateValidatorContract(t *testing.T) {
@@ -58,7 +70,7 @@ func TestSimulateUpdateValidatorContract(t *testing.T) {
 	assert.NoError(t, err)
 	defer subs.Unsubscribe()
 
-	bz, err := instance.InitValidatorSetBytes(nil)
+	bz, err := instance.INITVALIDATORSETBYTES(nil)
 	assert.NoError(t, err)
 
 	data, err := validatorSetABI.Pack("update", bz[1+68:],
@@ -77,6 +89,12 @@ func TestSimulateUpdateValidatorContract(t *testing.T) {
 	res, err := client.CallContract(context.Background(), msg, nil)
 	assert.NoError(t, err)
 	fmt.Println(string(res))
+}
+
+func TestA(t *testing.T) {
+	bz, err := hex.DecodeString("0000010002080000000000000000")
+	fmt.Println(len(bz))
+	fmt.Println(err)
 }
 
 // do update
@@ -108,9 +126,9 @@ func TestUpdateValidatorContract(t *testing.T) {
 	defer subs.Unsubscribe()
 	time.Sleep(1 * time.Second)
 
-	bz, err := instance.InitValidatorSetBytes(nil)
+	bz, err := instance.INITVALIDATORSETBYTES(nil)
 	assert.NoError(t, err)
-	tx, e := instance.Update(auth, append([]byte{0x00},bz[1:]...), common.Hex2Bytes("12"), 0, sequence+1)
+	tx, e := instance.Update(auth, append([]byte{0x00}, bz[1:]...), common.Hex2Bytes("12"), 0, sequence+1)
 
 	assert.NoError(t, e)
 	time.Sleep(4 * time.Second)
@@ -118,13 +136,104 @@ func TestUpdateValidatorContract(t *testing.T) {
 	//<-sink
 	r, err := client.TransactionReceipt(context.Background(), tx.Hash())
 	assert.NoError(t, err)
-	fmt.Printf("status %d\n",r.Status)
+	fmt.Printf("status %d\n", r.Status)
 	fmt.Printf("gas used %d\n", r.GasUsed)
 	fmt.Printf("gas price %v\n", tx.GasPrice().String())
 	fmt.Printf("success: %v\n", r.Status == 1)
 
-	vs,_:=instance.GetValidators(nil);
+	vs, _ := instance.GetValidators(nil)
 	fmt.Println(len(vs))
+}
+
+func TestGetIncoming(t *testing.T) {
+	client, err := ethclient.Dial(endpoint)
+	assert.NoError(t, err)
+	instance, err := NewValidator(validatorSetAddr, client)
+	assert.NoError(t, err)
+
+	for h := int64(6016); h <= 6017; h++ {
+		fmt.Printf("\nheiht %d \n", h)
+		b, _ := client.BlockByNumber(context.Background(), big.NewInt(h))
+		fmt.Printf("tx length at height %v %v \n", h, len(b.Transactions()))
+		varls,_:=instance.GetValidators(&bind.CallOpts{BlockNumber: big.NewInt(h)})
+		fmt.Printf("validators:")
+
+		for _,v:=range varls{
+			fmt.Printf("%s  ",v.String())
+		}
+		fmt.Printf("\n")
+
+		for i := int64(0); i < 3; i++ {
+			res, _ := instance.CurrentValidatorSet(&bind.CallOpts{BlockNumber: big.NewInt(h)}, big.NewInt(i))
+			fmt.Printf("validator %s income %s\n", res.ConsensusAddress.String(), res.Incoming.String())
+		}
+		balance, _ := client.BalanceAt(context.Background(), common.HexToAddress("0x9fB29AAc15b9A4B7F17c3385939b007540f4d791"), big.NewInt(h))
+		fmt.Printf("balance 0x9fB29AAc15b9A4B7F17c3385939b007540f4d791 %v\n", balance.String())
+		v, _ := client.BalanceAt(context.Background(), systemRewardAddr, big.NewInt(h))
+		fmt.Printf("balance system reward %v\n", v.String())
+
+		r, _ := client.BalanceAt(context.Background(), SystemAddress, big.NewInt(h))
+		fmt.Printf("balance system account %v\n", r.String())
+
+		k, _ := client.BalanceAt(context.Background(), validatorSetAddr, big.NewInt(h))
+		fmt.Printf("balance validatorset account %v\n", k.String())
+	}
+
+	b, _ := client.BlockByNumber(context.Background(), big.NewInt(6017))
+	fmt.Println(b.Hash().String())
+
+	r, _ := client.TransactionReceipt(context.Background(), b.Transactions()[0].Hash())
+	fmt.Println(r.GasUsed)
+
+	b1, _ := client.BlockByNumber(context.Background(), big.NewInt(6018))
+	fmt.Println(b.Transactions()[0].To().String())
+
+	r1, _ := client.TransactionReceipt(context.Background(), b1.Transactions()[0].Hash())
+	fmt.Println(r1.GasUsed)
+	end := uint64(6020)
+	ite, err := instance.FilterValidatorDeposit(&bind.FilterOpts{Start: 6016, End: &end}, nil, nil)
+	assert.NoError(t, err)
+	for ite.Next() {
+		fmt.Println("do have")
+	}
+}
+
+func TestGetEvent(t *testing.T) {
+	client, err := ethclient.Dial(endpoint)
+	instance, err := NewValidator(validatorSetAddr, client)
+
+	end:=uint64(258)
+	ite,err:=instance.FilterValidatorDeposit(&bind.FilterOpts{Start:258,End:&end},nil,nil)
+	assert.NoError(t,err)
+	if ite.Next(){
+		e:=ite.Event
+		fmt.Printf("validator is %s\n",e.Validator.String())
+		fmt.Printf("Amount is %s\n",e.Amount.String())
+	}
+}
+
+func TestWatchEvent(t *testing.T) {
+	wsclient, err := ethclient.Dial(wsEndpoint)
+	assert.NoError(t, err)
+	wsInstance, err := NewValidator(validatorSetAddr, wsclient)
+	sink := make(chan *ValidatorValidatorDeposit)
+	start := uint64(258)
+	subs, err := wsInstance.WatchValidatorDeposit(&bind.WatchOpts{Start: &start}, sink,nil, nil)
+	assert.NoError(t, err)
+	defer subs.Unsubscribe()
+	for s := range sink {
+		fmt.Println(s.Raw.Data)
+	}
+}
+
+func TestGetBlock(t *testing.T) {
+	client, err := ethclient.Dial(endpoint)
+	assert.NoError(t, err)
+
+	b, _ := client.BlockByNumber(context.Background(), big.NewInt(6017))
+	signer,err:=recoverSigner(b.Header())
+	assert.NoError(t,err)
+	fmt.Println(signer.String())
 }
 
 func TestGetBalanceOfValidators(t *testing.T) {
@@ -179,25 +288,35 @@ func TestGetBalanceOfValidators(t *testing.T) {
 
 func TestTmp(t *testing.T) {
 
-	fmt.Println(time.Unix(567818489952, 0))
+	//client, err := ethclient.Dial(endpoint)
+	//assert.NoError(t, err)
+
+}
+func TestLength(t *testing.T) {
+	v := new(big.Int)
+	fmt.Println(v.Cmp(common.Big0) == 0)
+
 }
 
 func TestTransfer(t *testing.T) {
-	for i := 0; i < 20; i++ {
+	for i := 0; i < 2; i++ {
 		client, err := ethclient.Dial(endpoint)
 		assert.NoError(t, err)
-		balanceBefore, err := client.BalanceAt(context.Background(), receiveAccount, nil)
+
+		balanceBefore, err := client.BalanceAt(context.Background(), common.HexToAddress("0x9fB29AAc15b9A4B7F17c3385939b007540f4d791"), nil)
+		fmt.Println(balanceBefore.String())
 		assert.NoError(t, err)
-		tx, err := sendEther(client, account, receiveAccount, big.NewInt(params.Ether), false)
+		tx, err := sendEther(client, account, receiveAccount, big.NewInt(0).Mul(big.NewInt(params.Ether), big.NewInt(10000)), false)
 		assert.NoError(t, err)
-		time.Sleep(3 * time.Second)
+		time.Sleep(5 * time.Second)
 		r, err := client.TransactionReceipt(context.Background(), tx)
-		fmt.Println(err)
+		fmt.Println(r.BlockNumber)
 		assert.NoError(t, err)
 		assert.Equal(t, r.Status, uint64(1))
 		balanceAfter, err := client.BalanceAt(context.Background(), receiveAccount, nil)
+		fmt.Println(balanceAfter.String())
 		assert.NoError(t, err)
-		assert.Equal(t, big.NewInt(0).Sub(balanceAfter, balanceBefore).Cmp(big.NewInt(params.Ether)), 0)
+		//assert.Equal(t, big.NewInt(0).Sub(balanceAfter, balanceBefore).Cmp(big.NewInt(params.Ether)), 0)
 	}
 }
 
@@ -225,11 +344,14 @@ func TestBlockNum(t *testing.T) {
 		panic(err)
 	}
 
-	b, err := client.BlockByNumber(context.Background(), nil)
+	b, err := client.BlockByNumber(context.Background(), big.NewInt(1))
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Println(b)
+		fmt.Println(b.Number().String())
+		fmt.Println(b.Time())
+		fmt.Println(b.Hash().String())
+		fmt.Println(b.Transactions().Len())
 	}
 }
 
@@ -312,7 +434,7 @@ func sendEther(client *ethclient.Client, fromEO ExtAcc, toAddr common.Address, v
 		return common.Hash{}, err
 	}
 	txhash := signedTx.Hash()
-	log.Printf("tx hash, sendEther: %s\n", txhash.Hex())
+	//log.Printf("tx hash, sendEther: %s\n", txhash.Hex())
 	return txhash, nil
 }
 
@@ -334,4 +456,59 @@ func fromHexKey(hexkey string) (ExtAcc, error) {
 	}
 	addr := crypto.PubkeyToAddress(*pubKeyECDSA)
 	return ExtAcc{key, addr}, nil
+}
+
+
+type TransferInUnboundTokenEvent struct {
+	Sequence        *big.Int
+	RefundAddr      common.Address
+	Recipient       common.Address
+	Amount          *big.Int
+	ContractAddr    common.Address
+	Bep2TokenSymbol common.Hash
+}
+
+
+func recoverSigner(header *types.Header) (common.Address, error) {
+	signature := header.Extra[len(header.Extra)-65:]
+
+	// Recover the public key and the Ethereum address
+	pubkey, err := crypto.Ecrecover(SealHash(header).Bytes(), signature)
+	if err != nil {
+		return common.Address{}, err
+	}
+	var signer common.Address
+	copy(signer[:], crypto.Keccak256(pubkey[1:])[12:])
+	return signer, nil
+}
+
+// SealHash returns the hash of a block prior to it being sealed.
+func SealHash(header *types.Header) (hash common.Hash) {
+	hasher := sha3.NewLegacyKeccak256()
+	encodeSigHeader(hasher, header)
+	hasher.Sum(hash[:0])
+	return hash
+}
+
+func encodeSigHeader(w io.Writer, header *types.Header) {
+	err := rlp.Encode(w, []interface{}{
+		header.ParentHash,
+		header.UncleHash,
+		header.Coinbase,
+		header.Root,
+		header.TxHash,
+		header.ReceiptHash,
+		header.Bloom,
+		header.Difficulty,
+		header.Number,
+		header.GasLimit,
+		header.GasUsed,
+		header.Time,
+		header.Extra[:len(header.Extra)-crypto.SignatureLength], // Yes, this will panic if extra is too short
+		header.MixDigest,
+		header.Nonce,
+	})
+	if err != nil {
+		panic("can't encode: " + err.Error())
+	}
 }
