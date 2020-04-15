@@ -28,7 +28,7 @@ var (
 )
 
 // ValidatorABI is the input ABI used to generate the binding from.
-const ValidatorABI = "[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"batchTransfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"deprecatedDeposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"addresspayable\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"directTransfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"addresspayable\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"directTransferFail\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"systemTransfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"validatorDeposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"sequence\",\"type\":\"uint64\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"validatorFelony\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"validatorJailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"validatorMisdemeanor\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"validatorSetUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"CHANNEL_ID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DUSTY_INCOMING\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"EXTRA_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INIT_LIGHT_CLIENT_ADDR\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INIT_RELAYERHUB_CONTRACT_ADDR\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INIT_SLASH_CONTRACT_ADDR\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INIT_SYSTEM_REWARD_ADDR\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INIT_TOKEN_HUB_ADDR\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INIT_VALIDATORSET_BYTES\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"JAIL_MESSAGE_TYPE\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RELAYER_REWARD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"SYSTEM_ADDRESS\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VALIDATORS_UPDATE_MESSAGE_TYPE\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"alreadyInit\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"currentValidatorSet\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"consensusAddress\",\"type\":\"address\"},{\"internalType\":\"addresspayable\",\"name\":\"feeAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"BBCFeeAddress\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"votingPower\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"jailed\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"incoming\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"felonySequence\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"previousDepositHeight\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sequence\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalInComing\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"init\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_systemRewardAddr\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_tokenHub\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_lightClientAddr\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_slashContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_relayerHub\",\"type\":\"address\"}],\"name\":\"updateContractAddr\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"valAddr\",\"type\":\"address\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"msgBytes\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"proof\",\"type\":\"bytes\"},{\"internalType\":\"uint64\",\"name\":\"height\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"packageSequence\",\"type\":\"uint64\"}],\"name\":\"update\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getValidators\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"getIncoming\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"misdemeanor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"felony\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
+const ValidatorABI = "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"batchTransfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"batchTransferFailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"reason\",\"type\":\"bytes\"}],\"name\":\"batchTransferLowerFailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"deprecatedDeposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"addresspayable\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"directTransfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"addresspayable\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"directTransferFail\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"systemTransfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"validatorDeposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"validatorEmptyJailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"sequence\",\"type\":\"uint64\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"validatorFelony\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"validatorJailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"validatorMisdemeanor\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"validatorSetUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"CHANNEL_ID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DUSTY_INCOMING\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"EXTRA_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INIT_LIGHT_CLIENT_ADDR\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INIT_RELAYERHUB_CONTRACT_ADDR\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INIT_SLASH_CONTRACT_ADDR\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INIT_SYSTEM_REWARD_ADDR\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INIT_TOKEN_HUB_ADDR\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INIT_VALIDATORSET_BYTES\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"JAIL_MESSAGE_TYPE\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RELAYER_REWARD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VALIDATORS_UPDATE_MESSAGE_TYPE\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"alreadyInit\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"currentValidatorSet\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"consensusAddress\",\"type\":\"address\"},{\"internalType\":\"addresspayable\",\"name\":\"feeAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"BBCFeeAddress\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"votingPower\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"jailed\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"incoming\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"felonySequence\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"previousDepositHeight\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sequence\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalInComing\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"init\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"valAddr\",\"type\":\"address\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"msgBytes\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"proof\",\"type\":\"bytes\"},{\"internalType\":\"uint64\",\"name\":\"height\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"packageSequence\",\"type\":\"uint64\"}],\"name\":\"update\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getValidators\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"getIncoming\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"misdemeanor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"validator\",\"type\":\"address\"}],\"name\":\"felony\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
 
 // Validator is an auto generated Go binding around an Ethereum contract.
 type Validator struct {
@@ -458,32 +458,6 @@ func (_Validator *ValidatorCallerSession) RELAYERREWARD() (*big.Int, error) {
 	return _Validator.Contract.RELAYERREWARD(&_Validator.CallOpts)
 }
 
-// SYSTEMADDRESS is a free data retrieval call binding the contract method 0x3434735f.
-//
-// Solidity: function SYSTEM_ADDRESS() constant returns(address)
-func (_Validator *ValidatorCaller) SYSTEMADDRESS(opts *bind.CallOpts) (common.Address, error) {
-	var (
-		ret0 = new(common.Address)
-	)
-	out := ret0
-	err := _Validator.contract.Call(opts, out, "SYSTEM_ADDRESS")
-	return *ret0, err
-}
-
-// SYSTEMADDRESS is a free data retrieval call binding the contract method 0x3434735f.
-//
-// Solidity: function SYSTEM_ADDRESS() constant returns(address)
-func (_Validator *ValidatorSession) SYSTEMADDRESS() (common.Address, error) {
-	return _Validator.Contract.SYSTEMADDRESS(&_Validator.CallOpts)
-}
-
-// SYSTEMADDRESS is a free data retrieval call binding the contract method 0x3434735f.
-//
-// Solidity: function SYSTEM_ADDRESS() constant returns(address)
-func (_Validator *ValidatorCallerSession) SYSTEMADDRESS() (common.Address, error) {
-	return _Validator.Contract.SYSTEMADDRESS(&_Validator.CallOpts)
-}
-
 // VALIDATORSUPDATEMESSAGETYPE is a free data retrieval call binding the contract method 0x5667515a.
 //
 // Solidity: function VALIDATORS_UPDATE_MESSAGE_TYPE() constant returns(uint8)
@@ -849,27 +823,6 @@ func (_Validator *ValidatorTransactorSession) Update(msgBytes []byte, proof []by
 	return _Validator.Contract.Update(&_Validator.TransactOpts, msgBytes, proof, height, packageSequence)
 }
 
-// UpdateContractAddr is a paid mutator transaction binding the contract method 0x6c827b67.
-//
-// Solidity: function updateContractAddr(address _systemRewardAddr, address _tokenHub, address _lightClientAddr, address _slashContract, address _relayerHub) returns()
-func (_Validator *ValidatorTransactor) UpdateContractAddr(opts *bind.TransactOpts, _systemRewardAddr common.Address, _tokenHub common.Address, _lightClientAddr common.Address, _slashContract common.Address, _relayerHub common.Address) (*types.Transaction, error) {
-	return _Validator.contract.Transact(opts, "updateContractAddr", _systemRewardAddr, _tokenHub, _lightClientAddr, _slashContract, _relayerHub)
-}
-
-// UpdateContractAddr is a paid mutator transaction binding the contract method 0x6c827b67.
-//
-// Solidity: function updateContractAddr(address _systemRewardAddr, address _tokenHub, address _lightClientAddr, address _slashContract, address _relayerHub) returns()
-func (_Validator *ValidatorSession) UpdateContractAddr(_systemRewardAddr common.Address, _tokenHub common.Address, _lightClientAddr common.Address, _slashContract common.Address, _relayerHub common.Address) (*types.Transaction, error) {
-	return _Validator.Contract.UpdateContractAddr(&_Validator.TransactOpts, _systemRewardAddr, _tokenHub, _lightClientAddr, _slashContract, _relayerHub)
-}
-
-// UpdateContractAddr is a paid mutator transaction binding the contract method 0x6c827b67.
-//
-// Solidity: function updateContractAddr(address _systemRewardAddr, address _tokenHub, address _lightClientAddr, address _slashContract, address _relayerHub) returns()
-func (_Validator *ValidatorTransactorSession) UpdateContractAddr(_systemRewardAddr common.Address, _tokenHub common.Address, _lightClientAddr common.Address, _slashContract common.Address, _relayerHub common.Address) (*types.Transaction, error) {
-	return _Validator.Contract.UpdateContractAddr(&_Validator.TransactOpts, _systemRewardAddr, _tokenHub, _lightClientAddr, _slashContract, _relayerHub)
-}
-
 // ValidatorBatchTransferIterator is returned from FilterBatchTransfer and is used to iterate over the raw logs and unpacked data for BatchTransfer events raised by the Validator contract.
 type ValidatorBatchTransferIterator struct {
 	Event *ValidatorBatchTransfer // Event containing the contract specifics and raw log
@@ -945,15 +898,10 @@ type ValidatorBatchTransfer struct {
 
 // FilterBatchTransfer is a free log retrieval operation binding the contract event 0xa217d08e65f80c73121cd9db834d81652d544bfbf452f6d04922b16c90a37b70.
 //
-// Solidity: event batchTransfer(uint256 indexed amount)
-func (_Validator *ValidatorFilterer) FilterBatchTransfer(opts *bind.FilterOpts, amount []*big.Int) (*ValidatorBatchTransferIterator, error) {
+// Solidity: event batchTransfer(uint256 amount)
+func (_Validator *ValidatorFilterer) FilterBatchTransfer(opts *bind.FilterOpts) (*ValidatorBatchTransferIterator, error) {
 
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
-
-	logs, sub, err := _Validator.contract.FilterLogs(opts, "batchTransfer", amountRule)
+	logs, sub, err := _Validator.contract.FilterLogs(opts, "batchTransfer")
 	if err != nil {
 		return nil, err
 	}
@@ -962,15 +910,10 @@ func (_Validator *ValidatorFilterer) FilterBatchTransfer(opts *bind.FilterOpts, 
 
 // WatchBatchTransfer is a free log subscription operation binding the contract event 0xa217d08e65f80c73121cd9db834d81652d544bfbf452f6d04922b16c90a37b70.
 //
-// Solidity: event batchTransfer(uint256 indexed amount)
-func (_Validator *ValidatorFilterer) WatchBatchTransfer(opts *bind.WatchOpts, sink chan<- *ValidatorBatchTransfer, amount []*big.Int) (event.Subscription, error) {
+// Solidity: event batchTransfer(uint256 amount)
+func (_Validator *ValidatorFilterer) WatchBatchTransfer(opts *bind.WatchOpts, sink chan<- *ValidatorBatchTransfer) (event.Subscription, error) {
 
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
-
-	logs, sub, err := _Validator.contract.WatchLogs(opts, "batchTransfer", amountRule)
+	logs, sub, err := _Validator.contract.WatchLogs(opts, "batchTransfer")
 	if err != nil {
 		return nil, err
 	}
@@ -1004,10 +947,298 @@ func (_Validator *ValidatorFilterer) WatchBatchTransfer(opts *bind.WatchOpts, si
 
 // ParseBatchTransfer is a log parse operation binding the contract event 0xa217d08e65f80c73121cd9db834d81652d544bfbf452f6d04922b16c90a37b70.
 //
-// Solidity: event batchTransfer(uint256 indexed amount)
+// Solidity: event batchTransfer(uint256 amount)
 func (_Validator *ValidatorFilterer) ParseBatchTransfer(log types.Log) (*ValidatorBatchTransfer, error) {
 	event := new(ValidatorBatchTransfer)
 	if err := _Validator.contract.UnpackLog(event, "batchTransfer", log); err != nil {
+		return nil, err
+	}
+	return event, nil
+}
+
+// ValidatorBatchTransferFailedIterator is returned from FilterBatchTransferFailed and is used to iterate over the raw logs and unpacked data for BatchTransferFailed events raised by the Validator contract.
+type ValidatorBatchTransferFailedIterator struct {
+	Event *ValidatorBatchTransferFailed // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *ValidatorBatchTransferFailedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(ValidatorBatchTransferFailed)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(ValidatorBatchTransferFailed)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *ValidatorBatchTransferFailedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *ValidatorBatchTransferFailedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// ValidatorBatchTransferFailed represents a BatchTransferFailed event raised by the Validator contract.
+type ValidatorBatchTransferFailed struct {
+	Amount *big.Int
+	Reason string
+	Raw    types.Log // Blockchain specific contextual infos
+}
+
+// FilterBatchTransferFailed is a free log retrieval operation binding the contract event 0xa7cdeed7d0db45e3219a6e5d60838824c16f1d39991fcfe3f963029c844bf280.
+//
+// Solidity: event batchTransferFailed(uint256 indexed amount, string reason)
+func (_Validator *ValidatorFilterer) FilterBatchTransferFailed(opts *bind.FilterOpts, amount []*big.Int) (*ValidatorBatchTransferFailedIterator, error) {
+
+	var amountRule []interface{}
+	for _, amountItem := range amount {
+		amountRule = append(amountRule, amountItem)
+	}
+
+	logs, sub, err := _Validator.contract.FilterLogs(opts, "batchTransferFailed", amountRule)
+	if err != nil {
+		return nil, err
+	}
+	return &ValidatorBatchTransferFailedIterator{contract: _Validator.contract, event: "batchTransferFailed", logs: logs, sub: sub}, nil
+}
+
+// WatchBatchTransferFailed is a free log subscription operation binding the contract event 0xa7cdeed7d0db45e3219a6e5d60838824c16f1d39991fcfe3f963029c844bf280.
+//
+// Solidity: event batchTransferFailed(uint256 indexed amount, string reason)
+func (_Validator *ValidatorFilterer) WatchBatchTransferFailed(opts *bind.WatchOpts, sink chan<- *ValidatorBatchTransferFailed, amount []*big.Int) (event.Subscription, error) {
+
+	var amountRule []interface{}
+	for _, amountItem := range amount {
+		amountRule = append(amountRule, amountItem)
+	}
+
+	logs, sub, err := _Validator.contract.WatchLogs(opts, "batchTransferFailed", amountRule)
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(ValidatorBatchTransferFailed)
+				if err := _Validator.contract.UnpackLog(event, "batchTransferFailed", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseBatchTransferFailed is a log parse operation binding the contract event 0xa7cdeed7d0db45e3219a6e5d60838824c16f1d39991fcfe3f963029c844bf280.
+//
+// Solidity: event batchTransferFailed(uint256 indexed amount, string reason)
+func (_Validator *ValidatorFilterer) ParseBatchTransferFailed(log types.Log) (*ValidatorBatchTransferFailed, error) {
+	event := new(ValidatorBatchTransferFailed)
+	if err := _Validator.contract.UnpackLog(event, "batchTransferFailed", log); err != nil {
+		return nil, err
+	}
+	return event, nil
+}
+
+// ValidatorBatchTransferLowerFailedIterator is returned from FilterBatchTransferLowerFailed and is used to iterate over the raw logs and unpacked data for BatchTransferLowerFailed events raised by the Validator contract.
+type ValidatorBatchTransferLowerFailedIterator struct {
+	Event *ValidatorBatchTransferLowerFailed // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *ValidatorBatchTransferLowerFailedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(ValidatorBatchTransferLowerFailed)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(ValidatorBatchTransferLowerFailed)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *ValidatorBatchTransferLowerFailedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *ValidatorBatchTransferLowerFailedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// ValidatorBatchTransferLowerFailed represents a BatchTransferLowerFailed event raised by the Validator contract.
+type ValidatorBatchTransferLowerFailed struct {
+	Amount *big.Int
+	Reason []byte
+	Raw    types.Log // Blockchain specific contextual infos
+}
+
+// FilterBatchTransferLowerFailed is a free log retrieval operation binding the contract event 0xbfa884552dd8921b6ce90bfe906952ae5b3b29be0cc1a951d4f62697635a3a45.
+//
+// Solidity: event batchTransferLowerFailed(uint256 indexed amount, bytes reason)
+func (_Validator *ValidatorFilterer) FilterBatchTransferLowerFailed(opts *bind.FilterOpts, amount []*big.Int) (*ValidatorBatchTransferLowerFailedIterator, error) {
+
+	var amountRule []interface{}
+	for _, amountItem := range amount {
+		amountRule = append(amountRule, amountItem)
+	}
+
+	logs, sub, err := _Validator.contract.FilterLogs(opts, "batchTransferLowerFailed", amountRule)
+	if err != nil {
+		return nil, err
+	}
+	return &ValidatorBatchTransferLowerFailedIterator{contract: _Validator.contract, event: "batchTransferLowerFailed", logs: logs, sub: sub}, nil
+}
+
+// WatchBatchTransferLowerFailed is a free log subscription operation binding the contract event 0xbfa884552dd8921b6ce90bfe906952ae5b3b29be0cc1a951d4f62697635a3a45.
+//
+// Solidity: event batchTransferLowerFailed(uint256 indexed amount, bytes reason)
+func (_Validator *ValidatorFilterer) WatchBatchTransferLowerFailed(opts *bind.WatchOpts, sink chan<- *ValidatorBatchTransferLowerFailed, amount []*big.Int) (event.Subscription, error) {
+
+	var amountRule []interface{}
+	for _, amountItem := range amount {
+		amountRule = append(amountRule, amountItem)
+	}
+
+	logs, sub, err := _Validator.contract.WatchLogs(opts, "batchTransferLowerFailed", amountRule)
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(ValidatorBatchTransferLowerFailed)
+				if err := _Validator.contract.UnpackLog(event, "batchTransferLowerFailed", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseBatchTransferLowerFailed is a log parse operation binding the contract event 0xbfa884552dd8921b6ce90bfe906952ae5b3b29be0cc1a951d4f62697635a3a45.
+//
+// Solidity: event batchTransferLowerFailed(uint256 indexed amount, bytes reason)
+func (_Validator *ValidatorFilterer) ParseBatchTransferLowerFailed(log types.Log) (*ValidatorBatchTransferLowerFailed, error) {
+	event := new(ValidatorBatchTransferLowerFailed)
+	if err := _Validator.contract.UnpackLog(event, "batchTransferLowerFailed", log); err != nil {
 		return nil, err
 	}
 	return event, nil
@@ -1089,19 +1320,15 @@ type ValidatorDeprecatedDeposit struct {
 
 // FilterDeprecatedDeposit is a free log retrieval operation binding the contract event 0xf177e5d6c5764d79c32883ed824111d9b13f5668cf6ab1cc12dd36791dd955b4.
 //
-// Solidity: event deprecatedDeposit(address indexed validator, uint256 indexed amount)
-func (_Validator *ValidatorFilterer) FilterDeprecatedDeposit(opts *bind.FilterOpts, validator []common.Address, amount []*big.Int) (*ValidatorDeprecatedDepositIterator, error) {
+// Solidity: event deprecatedDeposit(address indexed validator, uint256 amount)
+func (_Validator *ValidatorFilterer) FilterDeprecatedDeposit(opts *bind.FilterOpts, validator []common.Address) (*ValidatorDeprecatedDepositIterator, error) {
 
 	var validatorRule []interface{}
 	for _, validatorItem := range validator {
 		validatorRule = append(validatorRule, validatorItem)
 	}
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
 
-	logs, sub, err := _Validator.contract.FilterLogs(opts, "deprecatedDeposit", validatorRule, amountRule)
+	logs, sub, err := _Validator.contract.FilterLogs(opts, "deprecatedDeposit", validatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1110,19 +1337,15 @@ func (_Validator *ValidatorFilterer) FilterDeprecatedDeposit(opts *bind.FilterOp
 
 // WatchDeprecatedDeposit is a free log subscription operation binding the contract event 0xf177e5d6c5764d79c32883ed824111d9b13f5668cf6ab1cc12dd36791dd955b4.
 //
-// Solidity: event deprecatedDeposit(address indexed validator, uint256 indexed amount)
-func (_Validator *ValidatorFilterer) WatchDeprecatedDeposit(opts *bind.WatchOpts, sink chan<- *ValidatorDeprecatedDeposit, validator []common.Address, amount []*big.Int) (event.Subscription, error) {
+// Solidity: event deprecatedDeposit(address indexed validator, uint256 amount)
+func (_Validator *ValidatorFilterer) WatchDeprecatedDeposit(opts *bind.WatchOpts, sink chan<- *ValidatorDeprecatedDeposit, validator []common.Address) (event.Subscription, error) {
 
 	var validatorRule []interface{}
 	for _, validatorItem := range validator {
 		validatorRule = append(validatorRule, validatorItem)
 	}
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
 
-	logs, sub, err := _Validator.contract.WatchLogs(opts, "deprecatedDeposit", validatorRule, amountRule)
+	logs, sub, err := _Validator.contract.WatchLogs(opts, "deprecatedDeposit", validatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1156,7 +1379,7 @@ func (_Validator *ValidatorFilterer) WatchDeprecatedDeposit(opts *bind.WatchOpts
 
 // ParseDeprecatedDeposit is a log parse operation binding the contract event 0xf177e5d6c5764d79c32883ed824111d9b13f5668cf6ab1cc12dd36791dd955b4.
 //
-// Solidity: event deprecatedDeposit(address indexed validator, uint256 indexed amount)
+// Solidity: event deprecatedDeposit(address indexed validator, uint256 amount)
 func (_Validator *ValidatorFilterer) ParseDeprecatedDeposit(log types.Log) (*ValidatorDeprecatedDeposit, error) {
 	event := new(ValidatorDeprecatedDeposit)
 	if err := _Validator.contract.UnpackLog(event, "deprecatedDeposit", log); err != nil {
@@ -1241,19 +1464,15 @@ type ValidatorDirectTransfer struct {
 
 // FilterDirectTransfer is a free log retrieval operation binding the contract event 0x6c61d60f69a7beb3e1c80db7f39f37b208537cbb19da3174511b477812b2fc7d.
 //
-// Solidity: event directTransfer(address indexed validator, uint256 indexed amount)
-func (_Validator *ValidatorFilterer) FilterDirectTransfer(opts *bind.FilterOpts, validator []common.Address, amount []*big.Int) (*ValidatorDirectTransferIterator, error) {
+// Solidity: event directTransfer(address indexed validator, uint256 amount)
+func (_Validator *ValidatorFilterer) FilterDirectTransfer(opts *bind.FilterOpts, validator []common.Address) (*ValidatorDirectTransferIterator, error) {
 
 	var validatorRule []interface{}
 	for _, validatorItem := range validator {
 		validatorRule = append(validatorRule, validatorItem)
 	}
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
 
-	logs, sub, err := _Validator.contract.FilterLogs(opts, "directTransfer", validatorRule, amountRule)
+	logs, sub, err := _Validator.contract.FilterLogs(opts, "directTransfer", validatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1262,19 +1481,15 @@ func (_Validator *ValidatorFilterer) FilterDirectTransfer(opts *bind.FilterOpts,
 
 // WatchDirectTransfer is a free log subscription operation binding the contract event 0x6c61d60f69a7beb3e1c80db7f39f37b208537cbb19da3174511b477812b2fc7d.
 //
-// Solidity: event directTransfer(address indexed validator, uint256 indexed amount)
-func (_Validator *ValidatorFilterer) WatchDirectTransfer(opts *bind.WatchOpts, sink chan<- *ValidatorDirectTransfer, validator []common.Address, amount []*big.Int) (event.Subscription, error) {
+// Solidity: event directTransfer(address indexed validator, uint256 amount)
+func (_Validator *ValidatorFilterer) WatchDirectTransfer(opts *bind.WatchOpts, sink chan<- *ValidatorDirectTransfer, validator []common.Address) (event.Subscription, error) {
 
 	var validatorRule []interface{}
 	for _, validatorItem := range validator {
 		validatorRule = append(validatorRule, validatorItem)
 	}
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
 
-	logs, sub, err := _Validator.contract.WatchLogs(opts, "directTransfer", validatorRule, amountRule)
+	logs, sub, err := _Validator.contract.WatchLogs(opts, "directTransfer", validatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1308,7 +1523,7 @@ func (_Validator *ValidatorFilterer) WatchDirectTransfer(opts *bind.WatchOpts, s
 
 // ParseDirectTransfer is a log parse operation binding the contract event 0x6c61d60f69a7beb3e1c80db7f39f37b208537cbb19da3174511b477812b2fc7d.
 //
-// Solidity: event directTransfer(address indexed validator, uint256 indexed amount)
+// Solidity: event directTransfer(address indexed validator, uint256 amount)
 func (_Validator *ValidatorFilterer) ParseDirectTransfer(log types.Log) (*ValidatorDirectTransfer, error) {
 	event := new(ValidatorDirectTransfer)
 	if err := _Validator.contract.UnpackLog(event, "directTransfer", log); err != nil {
@@ -1393,19 +1608,15 @@ type ValidatorDirectTransferFail struct {
 
 // FilterDirectTransferFail is a free log retrieval operation binding the contract event 0x25d0ce7d2f0cec669a8c17efe49d195c13455bb8872b65fa610ac7f53fe4ca7d.
 //
-// Solidity: event directTransferFail(address indexed validator, uint256 indexed amount)
-func (_Validator *ValidatorFilterer) FilterDirectTransferFail(opts *bind.FilterOpts, validator []common.Address, amount []*big.Int) (*ValidatorDirectTransferFailIterator, error) {
+// Solidity: event directTransferFail(address indexed validator, uint256 amount)
+func (_Validator *ValidatorFilterer) FilterDirectTransferFail(opts *bind.FilterOpts, validator []common.Address) (*ValidatorDirectTransferFailIterator, error) {
 
 	var validatorRule []interface{}
 	for _, validatorItem := range validator {
 		validatorRule = append(validatorRule, validatorItem)
 	}
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
 
-	logs, sub, err := _Validator.contract.FilterLogs(opts, "directTransferFail", validatorRule, amountRule)
+	logs, sub, err := _Validator.contract.FilterLogs(opts, "directTransferFail", validatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1414,19 +1625,15 @@ func (_Validator *ValidatorFilterer) FilterDirectTransferFail(opts *bind.FilterO
 
 // WatchDirectTransferFail is a free log subscription operation binding the contract event 0x25d0ce7d2f0cec669a8c17efe49d195c13455bb8872b65fa610ac7f53fe4ca7d.
 //
-// Solidity: event directTransferFail(address indexed validator, uint256 indexed amount)
-func (_Validator *ValidatorFilterer) WatchDirectTransferFail(opts *bind.WatchOpts, sink chan<- *ValidatorDirectTransferFail, validator []common.Address, amount []*big.Int) (event.Subscription, error) {
+// Solidity: event directTransferFail(address indexed validator, uint256 amount)
+func (_Validator *ValidatorFilterer) WatchDirectTransferFail(opts *bind.WatchOpts, sink chan<- *ValidatorDirectTransferFail, validator []common.Address) (event.Subscription, error) {
 
 	var validatorRule []interface{}
 	for _, validatorItem := range validator {
 		validatorRule = append(validatorRule, validatorItem)
 	}
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
 
-	logs, sub, err := _Validator.contract.WatchLogs(opts, "directTransferFail", validatorRule, amountRule)
+	logs, sub, err := _Validator.contract.WatchLogs(opts, "directTransferFail", validatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1460,7 +1667,7 @@ func (_Validator *ValidatorFilterer) WatchDirectTransferFail(opts *bind.WatchOpt
 
 // ParseDirectTransferFail is a log parse operation binding the contract event 0x25d0ce7d2f0cec669a8c17efe49d195c13455bb8872b65fa610ac7f53fe4ca7d.
 //
-// Solidity: event directTransferFail(address indexed validator, uint256 indexed amount)
+// Solidity: event directTransferFail(address indexed validator, uint256 amount)
 func (_Validator *ValidatorFilterer) ParseDirectTransferFail(log types.Log) (*ValidatorDirectTransferFail, error) {
 	event := new(ValidatorDirectTransferFail)
 	if err := _Validator.contract.UnpackLog(event, "directTransferFail", log); err != nil {
@@ -1544,15 +1751,10 @@ type ValidatorSystemTransfer struct {
 
 // FilterSystemTransfer is a free log retrieval operation binding the contract event 0x6ecc855f9440a9282c90913bbc91619fd44f5ec0b462af28d127b116f130aa4d.
 //
-// Solidity: event systemTransfer(uint256 indexed amount)
-func (_Validator *ValidatorFilterer) FilterSystemTransfer(opts *bind.FilterOpts, amount []*big.Int) (*ValidatorSystemTransferIterator, error) {
+// Solidity: event systemTransfer(uint256 amount)
+func (_Validator *ValidatorFilterer) FilterSystemTransfer(opts *bind.FilterOpts) (*ValidatorSystemTransferIterator, error) {
 
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
-
-	logs, sub, err := _Validator.contract.FilterLogs(opts, "systemTransfer", amountRule)
+	logs, sub, err := _Validator.contract.FilterLogs(opts, "systemTransfer")
 	if err != nil {
 		return nil, err
 	}
@@ -1561,15 +1763,10 @@ func (_Validator *ValidatorFilterer) FilterSystemTransfer(opts *bind.FilterOpts,
 
 // WatchSystemTransfer is a free log subscription operation binding the contract event 0x6ecc855f9440a9282c90913bbc91619fd44f5ec0b462af28d127b116f130aa4d.
 //
-// Solidity: event systemTransfer(uint256 indexed amount)
-func (_Validator *ValidatorFilterer) WatchSystemTransfer(opts *bind.WatchOpts, sink chan<- *ValidatorSystemTransfer, amount []*big.Int) (event.Subscription, error) {
+// Solidity: event systemTransfer(uint256 amount)
+func (_Validator *ValidatorFilterer) WatchSystemTransfer(opts *bind.WatchOpts, sink chan<- *ValidatorSystemTransfer) (event.Subscription, error) {
 
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
-
-	logs, sub, err := _Validator.contract.WatchLogs(opts, "systemTransfer", amountRule)
+	logs, sub, err := _Validator.contract.WatchLogs(opts, "systemTransfer")
 	if err != nil {
 		return nil, err
 	}
@@ -1603,7 +1800,7 @@ func (_Validator *ValidatorFilterer) WatchSystemTransfer(opts *bind.WatchOpts, s
 
 // ParseSystemTransfer is a log parse operation binding the contract event 0x6ecc855f9440a9282c90913bbc91619fd44f5ec0b462af28d127b116f130aa4d.
 //
-// Solidity: event systemTransfer(uint256 indexed amount)
+// Solidity: event systemTransfer(uint256 amount)
 func (_Validator *ValidatorFilterer) ParseSystemTransfer(log types.Log) (*ValidatorSystemTransfer, error) {
 	event := new(ValidatorSystemTransfer)
 	if err := _Validator.contract.UnpackLog(event, "systemTransfer", log); err != nil {
@@ -1688,19 +1885,15 @@ type ValidatorValidatorDeposit struct {
 
 // FilterValidatorDeposit is a free log retrieval operation binding the contract event 0x93a090ecc682c002995fad3c85b30c5651d7fd29b0be5da9d784a3302aedc055.
 //
-// Solidity: event validatorDeposit(address indexed validator, uint256 indexed amount)
-func (_Validator *ValidatorFilterer) FilterValidatorDeposit(opts *bind.FilterOpts, validator []common.Address, amount []*big.Int) (*ValidatorValidatorDepositIterator, error) {
+// Solidity: event validatorDeposit(address indexed validator, uint256 amount)
+func (_Validator *ValidatorFilterer) FilterValidatorDeposit(opts *bind.FilterOpts, validator []common.Address) (*ValidatorValidatorDepositIterator, error) {
 
 	var validatorRule []interface{}
 	for _, validatorItem := range validator {
 		validatorRule = append(validatorRule, validatorItem)
 	}
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
 
-	logs, sub, err := _Validator.contract.FilterLogs(opts, "validatorDeposit", validatorRule, amountRule)
+	logs, sub, err := _Validator.contract.FilterLogs(opts, "validatorDeposit", validatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1709,19 +1902,15 @@ func (_Validator *ValidatorFilterer) FilterValidatorDeposit(opts *bind.FilterOpt
 
 // WatchValidatorDeposit is a free log subscription operation binding the contract event 0x93a090ecc682c002995fad3c85b30c5651d7fd29b0be5da9d784a3302aedc055.
 //
-// Solidity: event validatorDeposit(address indexed validator, uint256 indexed amount)
-func (_Validator *ValidatorFilterer) WatchValidatorDeposit(opts *bind.WatchOpts, sink chan<- *ValidatorValidatorDeposit, validator []common.Address, amount []*big.Int) (event.Subscription, error) {
+// Solidity: event validatorDeposit(address indexed validator, uint256 amount)
+func (_Validator *ValidatorFilterer) WatchValidatorDeposit(opts *bind.WatchOpts, sink chan<- *ValidatorValidatorDeposit, validator []common.Address) (event.Subscription, error) {
 
 	var validatorRule []interface{}
 	for _, validatorItem := range validator {
 		validatorRule = append(validatorRule, validatorItem)
 	}
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
 
-	logs, sub, err := _Validator.contract.WatchLogs(opts, "validatorDeposit", validatorRule, amountRule)
+	logs, sub, err := _Validator.contract.WatchLogs(opts, "validatorDeposit", validatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1755,10 +1944,153 @@ func (_Validator *ValidatorFilterer) WatchValidatorDeposit(opts *bind.WatchOpts,
 
 // ParseValidatorDeposit is a log parse operation binding the contract event 0x93a090ecc682c002995fad3c85b30c5651d7fd29b0be5da9d784a3302aedc055.
 //
-// Solidity: event validatorDeposit(address indexed validator, uint256 indexed amount)
+// Solidity: event validatorDeposit(address indexed validator, uint256 amount)
 func (_Validator *ValidatorFilterer) ParseValidatorDeposit(log types.Log) (*ValidatorValidatorDeposit, error) {
 	event := new(ValidatorValidatorDeposit)
 	if err := _Validator.contract.UnpackLog(event, "validatorDeposit", log); err != nil {
+		return nil, err
+	}
+	return event, nil
+}
+
+// ValidatorValidatorEmptyJailedIterator is returned from FilterValidatorEmptyJailed and is used to iterate over the raw logs and unpacked data for ValidatorEmptyJailed events raised by the Validator contract.
+type ValidatorValidatorEmptyJailedIterator struct {
+	Event *ValidatorValidatorEmptyJailed // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *ValidatorValidatorEmptyJailedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(ValidatorValidatorEmptyJailed)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(ValidatorValidatorEmptyJailed)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *ValidatorValidatorEmptyJailedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *ValidatorValidatorEmptyJailedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// ValidatorValidatorEmptyJailed represents a ValidatorEmptyJailed event raised by the Validator contract.
+type ValidatorValidatorEmptyJailed struct {
+	Validator common.Address
+	Raw       types.Log // Blockchain specific contextual infos
+}
+
+// FilterValidatorEmptyJailed is a free log retrieval operation binding the contract event 0xe209c46bebf57cf265d5d9009a00870e256d9150f3ed5281ab9d9eb3cec6e4be.
+//
+// Solidity: event validatorEmptyJailed(address indexed validator)
+func (_Validator *ValidatorFilterer) FilterValidatorEmptyJailed(opts *bind.FilterOpts, validator []common.Address) (*ValidatorValidatorEmptyJailedIterator, error) {
+
+	var validatorRule []interface{}
+	for _, validatorItem := range validator {
+		validatorRule = append(validatorRule, validatorItem)
+	}
+
+	logs, sub, err := _Validator.contract.FilterLogs(opts, "validatorEmptyJailed", validatorRule)
+	if err != nil {
+		return nil, err
+	}
+	return &ValidatorValidatorEmptyJailedIterator{contract: _Validator.contract, event: "validatorEmptyJailed", logs: logs, sub: sub}, nil
+}
+
+// WatchValidatorEmptyJailed is a free log subscription operation binding the contract event 0xe209c46bebf57cf265d5d9009a00870e256d9150f3ed5281ab9d9eb3cec6e4be.
+//
+// Solidity: event validatorEmptyJailed(address indexed validator)
+func (_Validator *ValidatorFilterer) WatchValidatorEmptyJailed(opts *bind.WatchOpts, sink chan<- *ValidatorValidatorEmptyJailed, validator []common.Address) (event.Subscription, error) {
+
+	var validatorRule []interface{}
+	for _, validatorItem := range validator {
+		validatorRule = append(validatorRule, validatorItem)
+	}
+
+	logs, sub, err := _Validator.contract.WatchLogs(opts, "validatorEmptyJailed", validatorRule)
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(ValidatorValidatorEmptyJailed)
+				if err := _Validator.contract.UnpackLog(event, "validatorEmptyJailed", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseValidatorEmptyJailed is a log parse operation binding the contract event 0xe209c46bebf57cf265d5d9009a00870e256d9150f3ed5281ab9d9eb3cec6e4be.
+//
+// Solidity: event validatorEmptyJailed(address indexed validator)
+func (_Validator *ValidatorFilterer) ParseValidatorEmptyJailed(log types.Log) (*ValidatorValidatorEmptyJailed, error) {
+	event := new(ValidatorValidatorEmptyJailed)
+	if err := _Validator.contract.UnpackLog(event, "validatorEmptyJailed", log); err != nil {
 		return nil, err
 	}
 	return event, nil
@@ -1841,8 +2173,8 @@ type ValidatorValidatorFelony struct {
 
 // FilterValidatorFelony is a free log retrieval operation binding the contract event 0x7e770310e43f85c3dca97460dbe1484068514437298ff349e6052595a6ffbdb7.
 //
-// Solidity: event validatorFelony(uint64 indexed sequence, address indexed validator, uint256 indexed amount)
-func (_Validator *ValidatorFilterer) FilterValidatorFelony(opts *bind.FilterOpts, sequence []uint64, validator []common.Address, amount []*big.Int) (*ValidatorValidatorFelonyIterator, error) {
+// Solidity: event validatorFelony(uint64 indexed sequence, address indexed validator, uint256 amount)
+func (_Validator *ValidatorFilterer) FilterValidatorFelony(opts *bind.FilterOpts, sequence []uint64, validator []common.Address) (*ValidatorValidatorFelonyIterator, error) {
 
 	var sequenceRule []interface{}
 	for _, sequenceItem := range sequence {
@@ -1852,12 +2184,8 @@ func (_Validator *ValidatorFilterer) FilterValidatorFelony(opts *bind.FilterOpts
 	for _, validatorItem := range validator {
 		validatorRule = append(validatorRule, validatorItem)
 	}
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
 
-	logs, sub, err := _Validator.contract.FilterLogs(opts, "validatorFelony", sequenceRule, validatorRule, amountRule)
+	logs, sub, err := _Validator.contract.FilterLogs(opts, "validatorFelony", sequenceRule, validatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1866,8 +2194,8 @@ func (_Validator *ValidatorFilterer) FilterValidatorFelony(opts *bind.FilterOpts
 
 // WatchValidatorFelony is a free log subscription operation binding the contract event 0x7e770310e43f85c3dca97460dbe1484068514437298ff349e6052595a6ffbdb7.
 //
-// Solidity: event validatorFelony(uint64 indexed sequence, address indexed validator, uint256 indexed amount)
-func (_Validator *ValidatorFilterer) WatchValidatorFelony(opts *bind.WatchOpts, sink chan<- *ValidatorValidatorFelony, sequence []uint64, validator []common.Address, amount []*big.Int) (event.Subscription, error) {
+// Solidity: event validatorFelony(uint64 indexed sequence, address indexed validator, uint256 amount)
+func (_Validator *ValidatorFilterer) WatchValidatorFelony(opts *bind.WatchOpts, sink chan<- *ValidatorValidatorFelony, sequence []uint64, validator []common.Address) (event.Subscription, error) {
 
 	var sequenceRule []interface{}
 	for _, sequenceItem := range sequence {
@@ -1877,12 +2205,8 @@ func (_Validator *ValidatorFilterer) WatchValidatorFelony(opts *bind.WatchOpts, 
 	for _, validatorItem := range validator {
 		validatorRule = append(validatorRule, validatorItem)
 	}
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
 
-	logs, sub, err := _Validator.contract.WatchLogs(opts, "validatorFelony", sequenceRule, validatorRule, amountRule)
+	logs, sub, err := _Validator.contract.WatchLogs(opts, "validatorFelony", sequenceRule, validatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1916,7 +2240,7 @@ func (_Validator *ValidatorFilterer) WatchValidatorFelony(opts *bind.WatchOpts, 
 
 // ParseValidatorFelony is a log parse operation binding the contract event 0x7e770310e43f85c3dca97460dbe1484068514437298ff349e6052595a6ffbdb7.
 //
-// Solidity: event validatorFelony(uint64 indexed sequence, address indexed validator, uint256 indexed amount)
+// Solidity: event validatorFelony(uint64 indexed sequence, address indexed validator, uint256 amount)
 func (_Validator *ValidatorFilterer) ParseValidatorFelony(log types.Log) (*ValidatorValidatorFelony, error) {
 	event := new(ValidatorValidatorFelony)
 	if err := _Validator.contract.UnpackLog(event, "validatorFelony", log); err != nil {
@@ -2144,19 +2468,15 @@ type ValidatorValidatorMisdemeanor struct {
 
 // FilterValidatorMisdemeanor is a free log retrieval operation binding the contract event 0x8cd4e147d8af98a9e3b6724021b8bf6aed2e5dac71c38f2dce8161b82585b25d.
 //
-// Solidity: event validatorMisdemeanor(address indexed validator, uint256 indexed amount)
-func (_Validator *ValidatorFilterer) FilterValidatorMisdemeanor(opts *bind.FilterOpts, validator []common.Address, amount []*big.Int) (*ValidatorValidatorMisdemeanorIterator, error) {
+// Solidity: event validatorMisdemeanor(address indexed validator, uint256 amount)
+func (_Validator *ValidatorFilterer) FilterValidatorMisdemeanor(opts *bind.FilterOpts, validator []common.Address) (*ValidatorValidatorMisdemeanorIterator, error) {
 
 	var validatorRule []interface{}
 	for _, validatorItem := range validator {
 		validatorRule = append(validatorRule, validatorItem)
 	}
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
 
-	logs, sub, err := _Validator.contract.FilterLogs(opts, "validatorMisdemeanor", validatorRule, amountRule)
+	logs, sub, err := _Validator.contract.FilterLogs(opts, "validatorMisdemeanor", validatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2165,19 +2485,15 @@ func (_Validator *ValidatorFilterer) FilterValidatorMisdemeanor(opts *bind.Filte
 
 // WatchValidatorMisdemeanor is a free log subscription operation binding the contract event 0x8cd4e147d8af98a9e3b6724021b8bf6aed2e5dac71c38f2dce8161b82585b25d.
 //
-// Solidity: event validatorMisdemeanor(address indexed validator, uint256 indexed amount)
-func (_Validator *ValidatorFilterer) WatchValidatorMisdemeanor(opts *bind.WatchOpts, sink chan<- *ValidatorValidatorMisdemeanor, validator []common.Address, amount []*big.Int) (event.Subscription, error) {
+// Solidity: event validatorMisdemeanor(address indexed validator, uint256 amount)
+func (_Validator *ValidatorFilterer) WatchValidatorMisdemeanor(opts *bind.WatchOpts, sink chan<- *ValidatorValidatorMisdemeanor, validator []common.Address) (event.Subscription, error) {
 
 	var validatorRule []interface{}
 	for _, validatorItem := range validator {
 		validatorRule = append(validatorRule, validatorItem)
 	}
-	var amountRule []interface{}
-	for _, amountItem := range amount {
-		amountRule = append(amountRule, amountItem)
-	}
 
-	logs, sub, err := _Validator.contract.WatchLogs(opts, "validatorMisdemeanor", validatorRule, amountRule)
+	logs, sub, err := _Validator.contract.WatchLogs(opts, "validatorMisdemeanor", validatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2211,7 +2527,7 @@ func (_Validator *ValidatorFilterer) WatchValidatorMisdemeanor(opts *bind.WatchO
 
 // ParseValidatorMisdemeanor is a log parse operation binding the contract event 0x8cd4e147d8af98a9e3b6724021b8bf6aed2e5dac71c38f2dce8161b82585b25d.
 //
-// Solidity: event validatorMisdemeanor(address indexed validator, uint256 indexed amount)
+// Solidity: event validatorMisdemeanor(address indexed validator, uint256 amount)
 func (_Validator *ValidatorFilterer) ParseValidatorMisdemeanor(log types.Log) (*ValidatorValidatorMisdemeanor, error) {
 	event := new(ValidatorValidatorMisdemeanor)
 	if err := _Validator.contract.UnpackLog(event, "validatorMisdemeanor", log); err != nil {

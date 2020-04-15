@@ -3,7 +3,7 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": true,
+        "indexed": false,
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
@@ -17,12 +17,50 @@
     "inputs": [
       {
         "indexed": true,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "reason",
+        "type": "string"
+      }
+    ],
+    "name": "batchTransferFailed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "reason",
+        "type": "bytes"
+      }
+    ],
+    "name": "batchTransferLowerFailed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
         "internalType": "address",
         "name": "validator",
         "type": "address"
       },
       {
-        "indexed": true,
+        "indexed": false,
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
@@ -41,7 +79,7 @@
         "type": "address"
       },
       {
-        "indexed": true,
+        "indexed": false,
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
@@ -60,7 +98,7 @@
         "type": "address"
       },
       {
-        "indexed": true,
+        "indexed": false,
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
@@ -73,7 +111,7 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": true,
+        "indexed": false,
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
@@ -92,13 +130,26 @@
         "type": "address"
       },
       {
-        "indexed": true,
+        "indexed": false,
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
       }
     ],
     "name": "validatorDeposit",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "validator",
+        "type": "address"
+      }
+    ],
+    "name": "validatorEmptyJailed",
     "type": "event"
   },
   {
@@ -117,7 +168,7 @@
         "type": "address"
       },
       {
-        "indexed": true,
+        "indexed": false,
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
@@ -149,7 +200,7 @@
         "type": "address"
       },
       {
-        "indexed": true,
+        "indexed": false,
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
@@ -309,19 +360,6 @@
   },
   {
     "inputs": [],
-    "name": "SYSTEM_ADDRESS",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "VALIDATORS_UPDATE_MESSAGE_TYPE",
     "outputs": [
       {
@@ -445,39 +483,6 @@
   {
     "inputs": [],
     "name": "init",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_systemRewardAddr",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_tokenHub",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_lightClientAddr",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_slashContract",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_relayerHub",
-        "type": "address"
-      }
-    ],
-    "name": "updateContractAddr",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

@@ -25,14 +25,13 @@ import (
 	"time"
 )
 
-//var endpoint = "http://127.0.0.1:8502"
+//var endpoint = "http://127.0.0.1:8503"
 
-var endpoint ="http://dex-qa-s1-bsc-dev-validator-alb-501442930.ap-northeast-1.elb.amazonaws.com:8545"
-
+var endpoint = "http://dex-qa-s1-bsc-dev-validator-alb-501442930.ap-northeast-1.elb.amazonaws.com:8545"
 
 //var endpoint = "http://127.0.0.1:8545"
 
-//var wsEndpoint = "ws://127.0.0.1:8547"
+//var wsEndpoint = "ws://127.0.0.1:8546"
 var wsEndpoint = "ws://dex-qa-s1-bsc-dev-validator-alb-501442930.ap-northeast-1.elb.amazonaws.com:8546"
 
 var validatorSetAddr = common.HexToAddress("0x0000000000000000000000000000000000001000")
@@ -151,15 +150,15 @@ func TestGetIncoming(t *testing.T) {
 	instance, err := NewValidator(validatorSetAddr, client)
 	assert.NoError(t, err)
 
-	for h := int64(6016); h <= 6017; h++ {
+	for h := int64(68130); h <= 68145; h++ {
 		fmt.Printf("\nheiht %d \n", h)
 		b, _ := client.BlockByNumber(context.Background(), big.NewInt(h))
 		fmt.Printf("tx length at height %v %v \n", h, len(b.Transactions()))
-		varls,_:=instance.GetValidators(&bind.CallOpts{BlockNumber: big.NewInt(h)})
+		varls, _ := instance.GetValidators(&bind.CallOpts{BlockNumber: big.NewInt(h)})
 		fmt.Printf("validators:")
 
-		for _,v:=range varls{
-			fmt.Printf("%s  ",v.String())
+		for _, v := range varls {
+			fmt.Printf("%s  ", v.String())
 		}
 		fmt.Printf("\n")
 
@@ -167,8 +166,8 @@ func TestGetIncoming(t *testing.T) {
 			res, _ := instance.CurrentValidatorSet(&bind.CallOpts{BlockNumber: big.NewInt(h)}, big.NewInt(i))
 			fmt.Printf("validator %s income %s\n", res.ConsensusAddress.String(), res.Incoming.String())
 		}
-		balance, _ := client.BalanceAt(context.Background(), common.HexToAddress("0x9fB29AAc15b9A4B7F17c3385939b007540f4d791"), big.NewInt(h))
-		fmt.Printf("balance 0x9fB29AAc15b9A4B7F17c3385939b007540f4d791 %v\n", balance.String())
+		//balance, _ := client.BalanceAt(context.Background(), common.HexToAddress("0x9fB29AAc15b9A4B7F17c3385939b007540f4d791"), big.NewInt(h))
+		//fmt.Printf("balance 0x9fB29AAc15b9A4B7F17c3385939b007540f4d791 %v\n", balance.String())
 		v, _ := client.BalanceAt(context.Background(), systemRewardAddr, big.NewInt(h))
 		fmt.Printf("balance system reward %v\n", v.String())
 
@@ -179,19 +178,19 @@ func TestGetIncoming(t *testing.T) {
 		fmt.Printf("balance validatorset account %v\n", k.String())
 	}
 
-	b, _ := client.BlockByNumber(context.Background(), big.NewInt(6017))
+	b, _ := client.BlockByNumber(context.Background(), big.NewInt(69164))
 	fmt.Println(b.Hash().String())
 
 	r, _ := client.TransactionReceipt(context.Background(), b.Transactions()[0].Hash())
 	fmt.Println(r.GasUsed)
 
-	b1, _ := client.BlockByNumber(context.Background(), big.NewInt(6018))
+	b1, _ := client.BlockByNumber(context.Background(), big.NewInt(69165))
 	fmt.Println(b.Transactions()[0].To().String())
 
 	r1, _ := client.TransactionReceipt(context.Background(), b1.Transactions()[0].Hash())
 	fmt.Println(r1.GasUsed)
 	end := uint64(6020)
-	ite, err := instance.FilterValidatorDeposit(&bind.FilterOpts{Start: 6016, End: &end}, nil, nil)
+	ite, err := instance.FilterValidatorDeposit(&bind.FilterOpts{Start: 69164, End: &end}, nil)
 	assert.NoError(t, err)
 	for ite.Next() {
 		fmt.Println("do have")
@@ -199,41 +198,154 @@ func TestGetIncoming(t *testing.T) {
 }
 
 func TestGetEvent(t *testing.T) {
-	client, err := ethclient.Dial(endpoint)
-	instance, err := NewValidator(validatorSetAddr, client)
-
-	end:=uint64(258)
-	ite,err:=instance.FilterValidatorDeposit(&bind.FilterOpts{Start:258,End:&end},nil,nil)
-	assert.NoError(t,err)
-	if ite.Next(){
-		e:=ite.Event
-		fmt.Printf("validator is %s\n",e.Validator.String())
-		fmt.Printf("Amount is %s\n",e.Amount.String())
+	client, _ := ethclient.Dial(endpoint)
+	instance, _ := NewValidator(validatorSetAddr, client)
+	seq, _ := instance.Sequence(nil)
+	fmt.Println(seq)
+	for i := uint64(69164); i < 69500+1; i++ {
+		ite, err := instance.FilterValidatorSetUpdated(&bind.FilterOpts{Start: i, End: &i})
+		assert.NoError(t, err)
+		if ite.Next() {
+			fmt.Println("do have")
+			e := ite.Event
+			fmt.Println(e.Raw.BlockNumber)
+			fmt.Println(e.Raw.TxHash.String())
+			//fmt.Printf("validator is %s\n",e.Validator.String())
+			//fmt.Printf("Amount is %s\n",e.Amount.String())
+			//fmt.Printf("data is %s\n",hex.EncodeToString(e.Raw.Data))
+		}
 	}
 }
 
 func TestWatchEvent(t *testing.T) {
 	wsclient, err := ethclient.Dial(wsEndpoint)
 	assert.NoError(t, err)
+
 	wsInstance, err := NewValidator(validatorSetAddr, wsclient)
 	sink := make(chan *ValidatorValidatorDeposit)
-	start := uint64(258)
-	subs, err := wsInstance.WatchValidatorDeposit(&bind.WatchOpts{Start: &start}, sink,nil, nil)
+	//start := uint64(68164)
+	subs, err := wsInstance.WatchValidatorDeposit(nil, sink, nil)
 	assert.NoError(t, err)
 	defer subs.Unsubscribe()
 	for s := range sink {
-		fmt.Println(s.Raw.Data)
+		fmt.Println(s.Validator.String())
 	}
 }
 
+func TestGetTx(t *testing.T) {
+
+	client, err := ethclient.Dial(endpoint)
+	assert.NoError(t, err)
+	r, _ := client.TransactionReceipt(context.Background(), common.HexToHash("0x0bfdb2bef0a469c6972c7eaf33b53da779c2e7e4aafe133284aa2316a09813ed"))
+	fmt.Println(r.Status)
+
+	tx, _, _ := client.TransactionByHash(context.Background(), common.HexToHash("0x0bfdb2bef0a469c6972c7eaf33b53da779c2e7e4aafe133284aa2316a09813ed"))
+	fmt.Println(hex.EncodeToString(tx.Data()))
+}
+
 func TestGetBlock(t *testing.T) {
+
 	client, err := ethclient.Dial(endpoint)
 	assert.NoError(t, err)
 
-	b, _ := client.BlockByNumber(context.Background(), big.NewInt(6017))
-	signer,err:=recoverSigner(b.Header())
-	assert.NoError(t,err)
-	fmt.Println(signer.String())
+	b, err := client.BlockByNumber(context.Background(), big.NewInt(1))
+	if err!=nil{
+		panic(err)
+	}
+	for _,tx:=range b.Transactions(){
+		r,_:=client.TransactionReceipt(context.Background(),tx.Hash())
+		fmt.Println(tx.Hash().String())
+		fmt.Println(r.Status)
+		fmt.Println(hex.EncodeToString(r.PostState))
+	}
+}
+
+func TestGetBlock1(t *testing.T) {
+	client, err := ethclient.Dial(endpoint)
+	assert.NoError(t, err)
+	relayer:=common.HexToAddress("0x37B8516a0F88E65D677229b402ec6C1e0E333004")
+
+	bb,_:=client.BalanceAt(context.Background(),relayer,big.NewInt(1647))
+	ab,_:=client.BalanceAt(context.Background(),relayer,big.NewInt(1648))
+
+	b, _ := client.BlockByNumber(context.Background(), big.NewInt(1648))
+
+	txs:=b.Transactions()
+	for _,tx:=range txs{
+
+		sender,err:=types.Sender(types.NewEIP155Signer(big.NewInt(714)),tx)
+		if err!=nil{
+			panic(err)
+		}
+		txr,_:=client.TransactionReceipt(context.Background(),tx.Hash())
+		fmt.Println(txr.Status)
+		fmt.Printf("sender is %v\n",sender.String())
+	}
+
+
+	tx:=b.Transaction(common.HexToHash("0x82d6d095dda71fa6b998271ba6196a6ee13104d5019922d6034b409c223f78db"))
+	txr,_:=client.TransactionReceipt(context.Background(),tx.Hash())
+	gasFee:=tx.GasPrice().Mul(tx.GasPrice(),big.NewInt(int64(txr.GasUsed)))
+
+	tx1:=b.Transactions()[0]
+	txr1,_:=client.TransactionReceipt(context.Background(),tx1.Hash())
+
+	gasFee1:=tx.GasPrice().Mul(tx1.GasPrice(),big.NewInt(int64(txr1.GasUsed)))
+
+	instance, _ := NewSystemReward(systemRewardAddr, client)
+	end:=uint64(1648)
+	ite, err := instance.FilterRewardTo(&bind.FilterOpts{Start: 1648,End:&end},nil)
+	var reward *big.Int
+	for ite.Next(){
+		e:=ite.Event
+		reward = e.Amount
+		fmt.Println(e.Raw.TxIndex)
+		fmt.Printf("award to %v, %s\n",e.To.String(),reward.String())
+	}
+
+	expected:=big.NewInt(0).Sub(big.NewInt(0).Sub(bb.Add(bb,reward),gasFee),gasFee1)
+	fmt.Printf("expected: %s\n",expected.String())
+	fmt.Printf("actuall: %s\n",ab.String())
+
+
+	//vinstance, _ := NewValidator(validatorSetAddr, client)
+	//vite,err := vinstance.FilterValidatorSetUpdated(&bind.FilterOpts{Start: 1648,End:&end})
+	//for vite.Next(){
+	//	fmt.Println(ite.Event.Raw.TxHash.String())
+	//}
+
+
+}
+
+func TestTmp2(t *testing.T) {
+	a := make([]string, 0)
+	a = append(a, "abc")
+	b := &a
+	*b = (*b)[1:]
+	fmt.Println(len(*b))
+}
+
+func TestGetBlock2(t *testing.T) {
+	client, err := ethclient.Dial(endpoint)
+	assert.NoError(t, err)
+
+	b, _ := client.BlockByNumber(context.Background(), big.NewInt(25))
+	r, _ := client.TransactionReceipt(context.Background(), b.Transactions()[2].Hash())
+	fmt.Println(r.Logs[0].Topics[0].String())
+	fmt.Println(r.Logs[0].Topics[1].String())
+	fmt.Println(r.Logs[0].Topics[2].String())
+	fmt.Println("inputs raw:")
+	fmt.Println(hex.EncodeToString(b.Transactions()[2].Data()))
+	fmt.Println("event raw:")
+	fmt.Println(hex.EncodeToString(r.Logs[0].Data))
+
+	instance, _ := NewValidator(validatorSetAddr, client)
+	adds, _ := instance.GetValidators(&bind.CallOpts{BlockNumber: big.NewInt(25)})
+	fmt.Println("validator address")
+	for _, a := range adds {
+		fmt.Println(a.String())
+	}
+
 }
 
 func TestGetBalanceOfValidators(t *testing.T) {
@@ -416,7 +528,13 @@ func sendEther(client *ethclient.Client, fromEO ExtAcc, toAddr common.Address, v
 		gasPrice = big.NewInt(params.Ether / 10000)
 	} else {
 		gasPrice, err = client.SuggestGasPrice(context.Background())
+		if err!=nil{
+			fmt.Println(err)
+		}
 	}
+
+	fmt.Println("gasprice")
+	fmt.Println(gasPrice.String())
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -458,7 +576,6 @@ func fromHexKey(hexkey string) (ExtAcc, error) {
 	return ExtAcc{key, addr}, nil
 }
 
-
 type TransferInUnboundTokenEvent struct {
 	Sequence        *big.Int
 	RefundAddr      common.Address
@@ -467,7 +584,6 @@ type TransferInUnboundTokenEvent struct {
 	ContractAddr    common.Address
 	Bep2TokenSymbol common.Hash
 }
-
 
 func recoverSigner(header *types.Header) (common.Address, error) {
 	signature := header.Extra[len(header.Extra)-65:]
