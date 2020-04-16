@@ -1,50 +1,57 @@
 package abi
 
 import (
+	"context"
 	"fmt"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"math/big"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
-var slashAddr = common.HexToAddress("0x0000000000000000000000000000000000001001")
+func TestSlashIndicate(t *testing.T){
+	client, err := ethclient.Dial(endpoint)
+	assert.NoError(t, err)
+	slashIns,_:=NewSlash(slashAddr, client)
+	for {
+		_,count,_:=slashIns.GetSlashIndicator(nil, common.HexToAddress("0xa5f6a270f60c83624dD1849038eE7c9e8a3E55fc"))
+		fmt.Println(count)
+	}
+}
 
-func TestSlash(t *testing.T) {
+func TestSlashIndicate1(t *testing.T){
+	client, err := ethclient.Dial(endpoint)
+	assert.NoError(t, err)
+	slashIns,_:=NewSlash(slashAddr, client)
+
+	x,_:=slashIns.MisdemeanorThreshold(nil)
+	fmt.Println(x)
+
+	govHub,_:=NewGov(govAddr, client)
+
+	ite,_:=govHub.FilterFailReasonWithStr(&bind.FilterOpts{Start: 6689})
+	if ite.Next(){
+		fmt.Println(ite.Event.Message)
+	}
+}
+
+
+func TestSystemReward(t *testing.T){
 	client, _ := ethclient.Dial(endpoint)
-	instance, _ := NewSlash(slashAddr, client)
-
-	validator,_:=NewValidator(validatorSetAddr,client)
-
-	end:=uint64(76827)
-	ite,err:=validator.FilterValidatorFelony(&bind.FilterOpts{Start: 76827,End: &end},nil,nil)
-	if err!=nil{
-		fmt.Println(err)
-	}
-	var slashAddr common.Address
-	for ite.Next(){
-		e:=ite.Event
-		fmt.Println(e.Validator.String())
-		slashAddr = ite.Event.Validator
-	}
-
-	_,count,_:=instance.GetSlashIndicator(&bind.CallOpts{BlockNumber: big.NewInt(76827)},slashAddr)
-	fmt.Println(count.String())
-
-	//
-	total:=0
-	for h:=uint64(76827);h>0;h--{
-		ite,_:= instance.FilterValidatorSlashed(&bind.FilterOpts{Start: h,End: &h},[]common.Address{slashAddr})
-		if ite.Next(){
-			total++
-			e:=ite.Event
-			fmt.Printf("At height %v\n",e.Raw.BlockNumber)
-		}
-		if total == 150 {
-			_,count,_:=instance.GetSlashIndicator(&bind.CallOpts{BlockNumber: big.NewInt(int64(h))},slashAddr)
-			fmt.Println(count.String())
-			break
+	//assert.NoError(t, err)
+	//rewardIns,_:=NewSystemReward(tokenHub, client)
+	//ite,_:=rewardIns.FilterRewardTo(&bind.FilterOpts{Start: uint64(21533)},nil)
+	//if ite.Next(){
+	//	fmt.Println(ite.Event.To.String())
+	//}
+	//b,_:=client.BalanceAt(context.Background(),tokenHub,nil)
+	//fmt.Println(b)
+	r,_:=client.TransactionReceipt(context.Background(),common.HexToHash("0xae6a764bcbdb8311bb15a3a36a78f9ed8d4e069b134bc9b7b8bc6cd77e72c5ac"))
+	for _,l:=range r.Logs{
+		fmt.Println("address", l.Address.String())
+		for _,topic:=range  l.Topics{
+			fmt.Println("hash:", topic.String())
 		}
 	}
 }

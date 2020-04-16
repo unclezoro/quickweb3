@@ -112,6 +112,38 @@
     "inputs": [
       {
         "indexed": false,
+        "internalType": "string",
+        "name": "message",
+        "type": "string"
+      }
+    ],
+    "name": "failReasonWithStr",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "key",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "value",
+        "type": "bytes"
+      }
+    ],
+    "name": "paramChange",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
@@ -256,7 +288,7 @@
   },
   {
     "inputs": [],
-    "name": "INIT_LIGHT_CLIENT_ADDR",
+    "name": "GOV_HUB_ADDR",
     "outputs": [
       {
         "internalType": "address",
@@ -269,46 +301,7 @@
   },
   {
     "inputs": [],
-    "name": "INIT_RELAYERHUB_CONTRACT_ADDR",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "INIT_SLASH_CONTRACT_ADDR",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "INIT_SYSTEM_REWARD_ADDR",
-    "outputs": [
-      {
-        "internalType": "address payable",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "INIT_TOKEN_HUB_ADDR",
+    "name": "INCENTIVIZE_ADDR",
     "outputs": [
       {
         "internalType": "address",
@@ -347,6 +340,32 @@
   },
   {
     "inputs": [],
+    "name": "LIGHT_CLIENT_ADDR",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "RELAYERHUB_CONTRACT_ADDR",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "RELAYER_REWARD",
     "outputs": [
       {
@@ -360,12 +379,64 @@
   },
   {
     "inputs": [],
+    "name": "SLASH_CONTRACT_ADDR",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "SYSTEM_REWARD_ADDR",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "TOKEN_HUB_ADDR",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "VALIDATORS_UPDATE_MESSAGE_TYPE",
     "outputs": [
       {
         "internalType": "uint8",
         "name": "",
         "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "VALIDATOR_CONTRACT_ADDR",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -430,6 +501,32 @@
   },
   {
     "inputs": [],
+    "name": "expireTimeSecondGap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "extraFee",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "felonySequence",
     "outputs": [
       {
@@ -449,6 +546,19 @@
         "internalType": "uint64",
         "name": "",
         "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "relayerReward",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -523,7 +633,7 @@
         "type": "uint64"
       }
     ],
-    "name": "update",
+    "name": "handlePackage",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -582,6 +692,24 @@
       }
     ],
     "name": "felony",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "key",
+        "type": "string"
+      },
+      {
+        "internalType": "bytes",
+        "name": "value",
+        "type": "bytes"
+      }
+    ],
+    "name": "updateParam",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

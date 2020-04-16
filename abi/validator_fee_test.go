@@ -9,20 +9,26 @@ import (
 	"github.com/ethereum/go-ethereum/params"
 	"github.com/stretchr/testify/assert"
 	"math/big"
+	"sort"
 	"testing"
 	"time"
 )
+
+func TestABC(t *testing.T)  {
+	a:=[]float64{1,2,3,4}
+	sort.Sort(sort.Float64Slice(a))
+	fmt.Println(a)
+}
 
 func TestFee(t *testing.T) {
 	go transferRoutin()
 	client, _ := ethclient.Dial(endpoint)
 	instance, _ := NewValidator(validatorSetAddr, client)
 	headers := make(chan *types.Header, 100)
-	wsclient, err := ethclient.Dial(wsEndpoint)
-	assert.NoError(t, err)
-	wsclient.SubscribeNewHead(context.Background(), headers)
+	//wsclient, err := ethclient.Dial(wsEndpoint)
+	//assert.NoError(t, err)
+	client.SubscribeNewHead(context.Background(), headers)
 	for header := range headers {
-		fmt.Println("get")
 		h := int64(header.Number.Uint64() - 7)
 		block, err := client.BlockByNumber(context.Background(), big.NewInt(int64(h)))
 		assert.NoError(t, err)
@@ -43,7 +49,7 @@ func TestFee(t *testing.T) {
 			panic(fmt.Sprintf("panic1 at hegiht %d", h))
 		}
 		totalIncome := big.NewInt(0)
-		for i := int64(0); i < 3; i++ {
+		for i := int64(0); i < 1; i++ {
 			res, err := instance.CurrentValidatorSet(&bind.CallOpts{BlockNumber: big.NewInt(h)}, big.NewInt(i))
 			fmt.Println(err)
 			totalIncome = totalIncome.Add(totalIncome, res.Incoming)
@@ -61,8 +67,9 @@ func TestFee(t *testing.T) {
 
 func transferRoutin() {
 	client, _ := ethclient.Dial(endpoint)
+	fmt.Println(account.addr.String())
 	for {
-		sendEther(client, account, receiveAccount, big.NewInt(0).Mul(big.NewInt(params.GWei), big.NewInt(10000)), false)
+		sendEther(client, account, receiveAccount, big.NewInt(0).Mul(big.NewInt(params.GWei), big.NewInt(10000)), false,1)
 		time.Sleep(1 * time.Second)
 	}
 }

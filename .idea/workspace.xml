@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c2ed6846-031c-4d5f-b95f-70ffb6251920" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/abi/a.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abi/cross-chain.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abi/crosschain.abi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abi/gov.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abi/keystore.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abi/light.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abi/slash.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abi/swap_pair.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abi/tokenhub.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swap_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abi/BSCValidatorSet.go" beforeDir="false" afterPath="$PROJECT_DIR$/abi/Validator.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abi/SlashIndicator.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abi/abi.json" beforeDir="false" afterPath="$PROJECT_DIR$/abi/abi.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abi/slash_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/abi/slash_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abi/validator_fee_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/abi/validator_fee_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abi/validatorset_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/abi/validatorset_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/abi/validatorset_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+              <folding>
+                <element signature="e#13#651#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/abi/abi.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/core/types/receipt.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/interfaces.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="114" column="5" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/Cellar/go/1.13.1/libexec/src/testing/testing.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="873" selection-start-line="873" selection-end-line="873" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/Cellar/go/1.13.1/libexec/src/runtime/panic.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="678" selection-start-line="678" selection-end-line="678" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/ethclient/ethclient.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="86" column="18" selection-start-line="86" selection-start-column="18" selection-end-line="86" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/abi/validator_fee_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/swap_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/abi/a.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="24" selection-end-line="1470" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ite</find>
+      <find>sendtr</find>
+      <find>transfert</find>
+      <find>sendeth</find>
+      <find>testtrqn</find>
+      <find>trans</find>
+      <find>tr</find>
+      <find>validatorse</find>
+      <find>validator</find>
+      <find>new</find>
+      <find>0x1284214b9b9c85549aB3D2b972df0dEEf66aC2c9</find>
+      <find>6fddd</find>
+      <find>symbol</find>
+      <find>validatoru</find>
+      <find>validatorsetupdate</find>
+      <find>batchtransfer</find>
+      <find>receip</find>
+      <find>filter</find>
+      <find>st</find>
+      <find>newval</find>
+      <find>signtx</find>
+      <find>dial</find>
+      <find>newvalid</find>
+      <find>sign</find>
+      <find>unknow</find>
+      <find>fina</find>
+      <find>\n</find>
+      <find>0x</find>
+      <find>out</find>
+      <find>transfer</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>&quot;,\n</replace>
+      <replace>&quot;0x</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/abi</dir>
+    </dirStrings>
+  </component>
+  <component name="GOROOT" path="/usr/local/Cellar/go/1.13.1/libexec" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/go.mod" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/abi/test_validatorSet.go" />
+        <option value="$PROJECT_DIR$/abi/normal_test.go" />
+        <option value="$PROJECT_DIR$/abi/relayer.json" />
+        <option value="$PROJECT_DIR$/abi/relayer.go" />
+        <option value="$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/core/types/transaction.go" />
+        <option value="$PROJECT_DIR$/abi/validatorset.go" />
+        <option value="$PROJECT_DIR$/abi/slash.json" />
+        <option value="$PROJECT_DIR$/abi/systemReard.json" />
+        <option value="$PROJECT_DIR$/abi/systemReward.go" />
+        <option value="$PROJECT_DIR$/abi/SlashIndicator.go" />
+        <option value="$PROJECT_DIR$/abi/keystore.json" />
+        <option value="$PROJECT_DIR$/abi/abi.json" />
+        <option value="$PROJECT_DIR$/abi/BSCValidatorSet.go" />
+        <option value="$PROJECT_DIR$/abi/light.json" />
+        <option value="$PROJECT_DIR$/abi/Light.go" />
+        <option value="$PROJECT_DIR$/abi/cross-chain.go" />
+        <option value="$PROJECT_DIR$/abi/Validator.go" />
+        <option value="$PROJECT_DIR$/abi/slash.go" />
+        <option value="$PROJECT_DIR$/abi/gov.go" />
+        <option value="$PROJECT_DIR$/abi/slash_test.go" />
+        <option value="$PROJECT_DIR$/abi/main.go" />
+        <option value="$PROJECT_DIR$/abi/erc20abi.json" />
+        <option value="$PROJECT_DIR$/abi/tokenhub.json" />
+        <option value="$PROJECT_DIR$/abi/validator_fee_test.go" />
+        <option value="$PROJECT_DIR$/abi/swap_pair.json" />
+        <option value="$PROJECT_DIR$/abi/swap_pair.go" />
+        <option value="$PROJECT_DIR$/swap_test.go" />
+        <option value="$PROJECT_DIR$/abi/swap_test.go" />
+        <option value="$PROJECT_DIR$/abi/a.log" />
+        <option value="$PROJECT_DIR$/abi/validatorset_test.go" />
+      </list>
+    </option>
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="XwueXWIe" />
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="811" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="quickweb3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quickweb3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="quickweb3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quickweb3" type="462c0819:PsiDirectoryNode" />
+              <item name="abi" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/abi" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/abi" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Go Test.TestBench in quickweb3/abi">
+    <configuration name="TestBench in quickweb3/abi" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="quickweb3" />
+      <working_directory value="$PROJECT_DIR$/abi" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="quickweb3/abi" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestBench$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestBlockNum in quickweb3/abi" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="quickweb3" />
+      <working_directory value="$PROJECT_DIR$/abi" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="quickweb3/abi" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestBlockNum$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestFee in quickweb3/abi" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="quickweb3" />
+      <working_directory value="$PROJECT_DIR$/abi" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="quickweb3/abi" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestFee$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSimulate in quickweb3/abi" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="quickweb3" />
+      <working_directory value="$PROJECT_DIR$/abi" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="quickweb3/abi" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestSimulate$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestTransfer in quickweb3/abi" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="quickweb3" />
+      <working_directory value="$PROJECT_DIR$/abi" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="quickweb3/abi" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestTransfer$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestBench in quickweb3/abi" />
+        <item itemvalue="Go Test.TestFee in quickweb3/abi" />
+        <item itemvalue="Go Test.TestSimulate in quickweb3/abi" />
+        <item itemvalue="Go Test.TestBlockNum in quickweb3/abi" />
+        <item itemvalue="Go Test.TestTransfer in quickweb3/abi" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TestHistory">
+    <history-entry file="TestBench_in_quickweb3_abi - 2020.09.17 at 22h 17m 32s.xml">
+      <configuration name="TestBench in quickweb3/abi" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestBench_in_quickweb3_abi - 2020.09.17 at 22h 21m 10s.xml">
+      <configuration name="TestBench in quickweb3/abi" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestBench_in_quickweb3_abi - 2020.09.17 at 22h 21m 29s.xml">
+      <configuration name="TestBench in quickweb3/abi" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestBench_in_quickweb3_abi - 2020.09.17 at 22h 22m 53s.xml">
+      <configuration name="TestBench in quickweb3/abi" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestBench_in_quickweb3_abi - 2020.09.18 at 17h 28m 55s.xml">
+      <configuration name="TestBench in quickweb3/abi" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestBench_in_quickweb3_abi - 2020.09.18 at 17h 29m 32s.xml">
+      <configuration name="TestBench in quickweb3/abi" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestBench_in_quickweb3_abi - 2020.09.18 at 17h 29m 52s.xml">
+      <configuration name="TestBench in quickweb3/abi" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestBench_in_quickweb3_abi - 2020.09.18 at 17h 30m 12s.xml">
+      <configuration name="TestBench in quickweb3/abi" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestBench_in_quickweb3_abi - 2020.09.18 at 17h 30m 39s.xml">
+      <configuration name="TestBench in quickweb3/abi" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestBench_in_quickweb3_abi - 2020.09.18 at 17h 30m 59s.xml">
+      <configuration name="TestBench in quickweb3/abi" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20886981" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49785408" visible="true" weight="0.42289156" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.34578314" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49928468" weight="0.32891566" />
+      <window_info anchor="bottom" id="Docker" order="7" weight="0.32891566" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49642345" weight="0.18433735" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5035765" side_tool="true" weight="0.32891566" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Cargo" order="3" />
+      <window_info anchor="right" id="make" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+    <proxy>direct</proxy>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/crypto/crypto.go</url>
+          <line>161</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/abi/validatorset_test.go</url>
+          <line>244</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/abi/validatorset_test.go</url>
+          <line>437</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/abi/validatorset_test.go</url>
+          <line>531</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/abi/validatorset_test.go</url>
+          <line>435</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/abi/validatorset_test.go</url>
+          <line>564</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/abi/validator_fee_test.go</url>
+          <line>72</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/abi/validator_fee_test.go</url>
+          <line>70</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/abi/validator_fee_test.go</url>
+          <line>24</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/crypto/signature_cgo.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/keystore.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="28" selection-end-column="491" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/common/bytes.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="67" column="77" selection-start-line="67" selection-start-column="11" selection-end-line="67" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/gorilla/websocket@v1.4.1-0.20190629185528-ae1634f6a989/client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2955">
+          <caret line="210" column="28" selection-start-line="210" selection-start-column="28" selection-end-line="210" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/light.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="405" column="1" selection-start-line="405" selection-start-column="1" selection-end-line="405" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#8285#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/core/types/block.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4170">
+          <caret line="291" column="38" selection-start-line="291" selection-start-column="38" selection-end-line="291" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/BSCValidatorSet.go" />
+    <entry file="file:///usr/local/Cellar/go/1.13.1/libexec/src/math/big/int.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/slash.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="91" column="4" lean-forward="true" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/SlashIndicator.go" />
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/params/denomination.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/gov.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15120">
+          <caret line="1018" column="48" selection-start-line="1018" selection-start-column="25" selection-end-line="1018" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/systemReward.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15930">
+          <caret line="1072" column="56" selection-start-line="1072" selection-start-column="56" selection-end-line="1072" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/go/1.13.1/libexec/src/crypto/ecdsa/ecdsa.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/core/blockchain_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13995">
+          <caret line="954" column="13" selection-start-line="954" selection-start-column="13" selection-end-line="954" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/relayer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/systemReard.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2730">
+          <caret line="182" column="30" selection-start-line="182" selection-start-column="30" selection-end-line="182" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/slash.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11475">
+          <caret line="775" column="27" selection-start-line="775" selection-start-column="27" selection-end-line="775" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/main.go" />
+    <entry file="file://$PROJECT_DIR$/abi/slash_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/erc20abi.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/ERC20.go" />
+    <entry file="file://$PROJECT_DIR$/abi/Light.go" />
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/accounts/abi/bind/base.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/tokenhub.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16785">
+          <caret line="1119" column="1" selection-start-line="1119" selection-start-column="1" selection-end-line="1119" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/core/types/log.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/rpc/websocket.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="151" column="5" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/Validator.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15765">
+          <caret line="1061" column="35" selection-start-line="1061" selection-start-column="35" selection-end-line="1061" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/core/types/transaction.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2745">
+          <caret line="194" selection-start-line="194" selection-end-line="194" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/common/types.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2670">
+          <caret line="191" column="5" selection-start-line="191" selection-start-column="5" selection-end-line="191" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/go/1.13.1/libexec/src/sort/sort.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3225">
+          <caret line="215" column="5" selection-start-line="215" selection-start-column="5" selection-end-line="215" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/cross-chain.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24480">
+          <caret line="1642" column="29" selection-start-line="1642" selection-start-column="29" selection-end-line="1642" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/crosschain.abi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/core/types/transaction_signing.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/rpc/client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2415">
+          <caret line="174" column="12" selection-start-line="174" selection-end-line="175" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/swap_pair.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6742" selection-start-column="6742" selection-end-column="6742" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/swap_pair.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="92" column="5" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/accounts/abi/bind/backend.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/swap_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="35" />
+          <folding>
+            <element signature="e#13#191#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/go.mod">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/go/1.13.1/libexec/src/builtin/builtin.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="260" column="4" selection-start-line="260" selection-start-column="4" selection-end-line="260" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/swap_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/go/1.13.1/libexec/src/testing/testing.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="873" selection-start-line="873" selection-end-line="873" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/go/1.13.1/libexec/src/runtime/panic.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="678" selection-start-line="678" selection-end-line="678" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/interfaces.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="114" column="5" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/core/types/receipt.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/abi.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/a.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="24" selection-end-line="1470" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/validator_fee_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/ethereum/go-ethereum@v1.9.10/ethclient/ethclient.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="86" column="18" selection-start-line="86" selection-start-column="18" selection-end-line="86" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abi/validatorset_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#13#651#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
