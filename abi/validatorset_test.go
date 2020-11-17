@@ -1,6 +1,7 @@
 package abi
 
 import (
+	"bytes"
 	"context"
 	"crypto/ecdsa"
 	"encoding/hex"
@@ -26,7 +27,7 @@ import (
 	"time"
 )
 
-var endpoint = "https://dataseed.binance.org:443"
+var endpoint = "https://bsc-dataseed.binance.org:443"
 
 //var endpoint = "http://dex-qa-s1-bsc-dev-validator-alb-501442930.ap-northeast-1.elb.amazonaws.com:8545"
 
@@ -34,7 +35,7 @@ var endpoint = "https://dataseed.binance.org:443"
 
 //var endpoint = "http://127.0.0.1:8545"
 
-var wsEndpoint = "wss://bsc-dataseed4.ninicoin.io:443"
+var wsEndpoint = "wss://bsc-ws-node.nariox.org:443"
 
 //var wsEndpoint = "ws://dex-qa-s1-bsc-dev-validator-alb-501442930.ap-northeast-1.elb.amazonaws.com:8545"
 
@@ -46,81 +47,49 @@ var govAddr = common.HexToAddress("0x0000000000000000000000000000000000001007")
 
 var tokenHub = common.HexToAddress("0x0000000000000000000000000000000000001004")
 var systemRewardAddr = common.HexToAddress("0x0000000000000000000000000000000000001002")
-var account, _ = fromHexKey("b7f5fe087d796a24e7d1215ddf809f101b3147cb8db0b5b869a5cd7afdef9b16")
+var account, _ = fromHexKey("9b28f36fbd67381120752d6172ecdcf10e06ab2d9a1367aac00cdcd6ac7855d3")
 var receiveAccount = common.HexToAddress("0xaa25Aa7a19f9c426E07dee59b12f944f4d9f1DD3")
 var SystemAddress = common.HexToAddress("0xffffFFFfFFffffffffffffffFfFFFfffFFFfFFfE")
 var validatorSetABI, _ = abi.JSON(strings.NewReader(ValidatorABI))
 var account2, _ = fromHexKey("bd9d3ded6eedf4c3ace1e02dda19d91045f712769ff1a44907bab7a4c0acf9f0")
 
 func TestSimulate(t *testing.T) {
-	client, err := ethclient.Dial(wsEndpoint)
+	client, err := ethclient.Dial(endpoint)
 	assert.NoError(t, err)
-	statas := make(map[string]int, 0)
-	l:=sync.Mutex{}
-	outofGas:=0
-	for idx, txHash := range txs {
-		go func(index int, txhashes string) {
-			tx, _, err := client.TransactionByHash(context.Background(), common.HexToHash(txhashes))
-			fmt.Println(err)
-			if tx ==nil{
-				fmt.Println("no tx")
-				return
-			}
-			r, _ := client.TransactionReceipt(context.Background(), tx.Hash())
-			msg := ethereum.CallMsg{
-				common.HexToAddress(froms[index]),
-				tx.To(),
-				tx.Gas(),
-				tx.GasPrice(),
-				tx.Value(),
-				tx.Data(),
-			}
-			if r==nil{
-				fmt.Println("no r")
-				return
-			}
-			res, err := client.CallContract(context.Background(), msg, r.BlockNumber.Add(r.BlockNumber, big.NewInt(0)))
-			fmt.Println(string(res))
-			l.Lock()
-			statas[string(res)] = statas[string(res)] + 1
-			if string(res) ==""{
-				if r.GasUsed * 11 /10 > tx.Gas(){
-					outofGas++
-				}else{
-						fmt.Printf("unknow tx %s\n", txhashes)
-				}
-			}
-			l.Unlock()
-		}(idx, txHash)
-
-		if idx %20 == 1{
-			time.Sleep(1*time.Second)
-		}
+	tx, _, err := client.TransactionByHash(context.Background(), common.HexToHash("0xa14fee8a7f8e53c24f153bb4e92dd8bd53f5764d83a88f7972bfff457bbad14c"))
+	fmt.Println(err)
+	if tx == nil {
+		fmt.Println("no tx")
+		return
 	}
-	fmt.Println("final")
-	for k,v:=range statas{
-		fmt.Printf("%s : %d \n",k, v)
+	r, _ := client.TransactionReceipt(context.Background(), tx.Hash())
+	msg := ethereum.CallMsg{
+		From:     common.HexToAddress("0xa31556a0D64F2D022F553B6419d2DE19CEAf802d"),
+		To:       tx.To(),
+		Gas:      tx.Gas(),
+		GasPrice: tx.GasPrice(),
+		Value:    tx.Value(),
+		Data:     tx.Data(),
 	}
-	fmt.Println("out of gas")
-	fmt.Println(outofGas)
+	if r == nil {
+		fmt.Println("no r")
+		return
+	}
+	res, err := client.CallContract(context.Background(), msg, r.BlockNumber.Sub(r.BlockNumber, big.NewInt(0)))
+	fmt.Println("====")
+	fmt.Println("err", err)
+	fmt.Println(string(res))
 }
 
 func TestBench(t *testing.T) {
-	client, _ := ethclient.Dial(endpoint)
-	for i:=0;i<100000;i++{
-		go func() {
-			b,err:=client.BlockByNumber(context.Background(),nil)
-			fmt.Println(err)
-			fmt.Println(b.Number().Int64())
-		}()
-		if i %20 ==0{
-			time.Sleep(100*time.Millisecond)
-		}
-	}
-
+	client, _ := ethclient.Dial("http://dex-qa-s1-bsc-dev-validator-alb-501442930.ap-northeast-1.elb.amazonaws.com:8545")
+	b, err := client.BlockByNumber(context.Background(), big.NewInt(234505))
+	assert.NoError(t, err)
+	fmt.Println(len(b.Transactions()))
 }
 func TestSlash(t *testing.T) {
 	client, _ := ethclient.Dial(endpoint)
+	//client.SendTransaction()
 	instance, _ := NewSlash(slashAddr, client)
 	for i := uint64(311765); i < 311765+100; i++ {
 		ite, err := instance.FilterValidatorSlashed(&bind.FilterOpts{Start: i}, nil)
@@ -420,26 +389,90 @@ func TestTransfer1(t *testing.T) {
 }
 
 func TestTransfer(t *testing.T) {
-	client, _ := ethclient.Dial(endpoint)
+	client, _ := ethclient.Dial("http://dex-qa-s1-bsc-dev-validator-alb-501442930.ap-northeast-1.elb.amazonaws.com:8545")
 	nonce, _ := client.PendingNonceAt(context.Background(), account.addr)
 	fmt.Println(account.addr.String())
 	b, _ := client.BalanceAt(context.Background(), account.addr, nil)
 	fmt.Println(b)
-	fmt.Println(nonce)
-	for i := 0; i < 1000; i++ {
+	for i := 0; i < 50; i++ {
+		fmt.Println(i)
 		_, err := sendEther(client, account, common.HexToAddress("0x275735E47b95079efe26b4b46A8061735330CA5e"), big.NewInt(0).Mul(big.NewInt(params.Wei), big.NewInt(100)), false, nonce)
 		if err != nil {
 			panic(err)
 		}
-		time.Sleep(1 * time.Second)
-		//r, _ := client.TransactionReceipt(context.Background(), common.HexToHash("0xaa25Aa7a19f9c426E07dee59b12f944f4d9f1DD3"))
-		//tx, _, _ := client.TransactionByHash(context.Background(), common.HexToHash("0xaa25Aa7a19f9c426E07dee59b12f944f4d9f1DD3"))
-		//fmt.Println(r.GasUsed)
-		//fmt.Println(hex.EncodeToString(tx.Data()))
+		time.Sleep(5 * time.Millisecond)
 		nonce++
-		//time.Sleep(100 * time.Second)
-		//assert.Equal(t, big.NewInt(0).Sub(balanceAfter, balanceBefore).Cmp(big.NewInt(params.Ether)), 0)
 	}
+	p, _ := client.SuggestGasPrice(context.Background())
+	fmt.Println(p.String())
+}
+
+func TestCal(t *testing.T) {
+	erc20 := 0
+	erc20Earn := big.NewInt(0)
+	erc20Gas := big.NewInt(0)
+	eth := 0
+	ethEarn := big.NewInt(0)
+	ethGas := big.NewInt(0)
+	contract := 0
+	contractEarn := big.NewInt(0)
+	contractGas := big.NewInt(0)
+	mux := sync.Mutex{}
+	client, _ := ethclient.Dial("wss://mainnet.infura.io/ws/v3/d4d164391311401b9ac5e900b0d9f7df")
+	methodId, err := hex.DecodeString("a9059cbb")
+	if err != nil {
+		panic(err)
+	}
+	p := NewPool(20, 20, 20)
+	for i := 11260000; i < 11267000; i += 10 {
+		fmt.Printf("height %d\n", i)
+		fmt.Printf("eth num %d, eth gas %s, eth earn %s\n", eth, ethGas.String(), ethEarn.String())
+		fmt.Printf("erc20 num %d, gas %s, earn %s\n", erc20, erc20Gas.String(), erc20Earn.String())
+		fmt.Printf("dapp num %d, gas %s,  earn %s\n", contract, contractGas.String(), contractEarn.String())
+		wg := sync.WaitGroup{}
+		wg.Add(10)
+		for j := 0; j < 10; j++ {
+			k := i + j
+			p.Schedule(func() {
+				b, err := client.BlockByNumber(context.Background(), big.NewInt(int64(k)))
+				if err != nil {
+					fmt.Println("=========== do have error ======")
+					fmt.Println(err)
+					wg.Done()
+					return
+				}
+				for _, tx := range b.Transactions() {
+					r, _ := client.TransactionReceipt(context.Background(), tx.Hash())
+					price := tx.GasPrice()
+					if len(tx.Data()) == 0 {
+						mux.Lock()
+						ethGas = big.NewInt(0).Add(ethGas, big.NewInt(int64(r.GasUsed)))
+						ethEarn = new(big.Int).Add(ethEarn, new(big.Int).Mul(price, big.NewInt(int64(r.GasUsed))))
+						eth++
+						mux.Unlock()
+					} else if len(tx.Data()) > len(methodId) && bytes.Equal(tx.Data()[0:len(methodId)], methodId) {
+						mux.Lock()
+						erc20Gas = big.NewInt(0).Add(erc20Gas, big.NewInt(int64(r.GasUsed)))
+						erc20Earn = new(big.Int).Add(erc20Earn, new(big.Int).Mul(price, big.NewInt(int64(r.GasUsed))))
+						erc20++
+						mux.Unlock()
+					} else {
+						mux.Lock()
+						contractGas = big.NewInt(0).Add(contractGas, big.NewInt(int64(r.GasUsed)))
+						contractEarn = new(big.Int).Add(contractEarn, new(big.Int).Mul(price, big.NewInt(int64(r.GasUsed))))
+						contract++
+						mux.Unlock()
+					}
+				}
+				wg.Done()
+			})
+		}
+		wg.Wait()
+	}
+	fmt.Printf("finish \n")
+	fmt.Printf("eth num %d, eth gas %s, eth earn %s\n", eth, ethGas.String(), ethEarn.String())
+	fmt.Printf("erc20 num %d, gas %s, earn %s\n", erc20, erc20Gas.String(), erc20Earn.String())
+	fmt.Printf("dapp num %d, gas %s,  earn %s\n", contract, contractGas.String(), contractEarn.String())
 }
 
 func TestTransferWithHugeFee(t *testing.T) {
@@ -530,7 +563,7 @@ func sendEther(client *ethclient.Client, fromEO ExtAcc, toAddr common.Address, v
 	}
 
 	tx := types.NewTransaction(nonce, toAddr, value, gasLimit, gasPrice, nil)
-	chainId := big.NewInt(714)
+	chainId := big.NewInt(1417)
 	signedTx, err := types.SignTx(tx, types.NewEIP155Signer(chainId), fromEO.key)
 	if err != nil {
 		return common.Hash{}, err
